@@ -1,0 +1,1157 @@
+{
+ "day": "2026-11-25",
+ "title": "Wednesday 25 November 2026",
+ "regions": [
+  {
+   "id": "europe",
+   "count": 10
+  },
+  {
+   "id": "middle-east",
+   "count": 8
+  },
+  {
+   "id": "asia",
+   "count": 9
+  },
+  {
+   "id": "africa",
+   "count": 6
+  },
+  {
+   "id": "americas",
+   "count": 9
+  },
+  {
+   "id": "oceania",
+   "count": 3
+  },
+  {
+   "id": "world",
+   "count": 2
+  }
+ ],
+ "stories": [
+  {
+   "n": 1,
+   "headline": "Pakistani becomes first foreigner aboard China's space station",
+   "hook": "Pakistan's Zeeshan Ali becomes first foreigner aboard China's Tiangong station",
+   "points": [
+    "Shenzhou-24 crew entered Tiangong at 14:35, about six hours after launch from Jiuquan.",
+    "Ali, 40, is a payload specialist staying five to ten days; he trained seven months in Beijing.",
+    "He will help test self-healing carbon fibre composites that repair cracks in spacecraft."
+   ],
+   "summary": "Shenzhou-24: 08:18 Beijing launch, 11:56 docking. Muhammad Zeeshan Ali, 40, a former Pakistan Air Force pilot, joins Tang Hongbo and Wu Yi; stays 5 to 10 days.",
+   "region": "asia",
+   "section": "SPACE",
+   "place": "Jiuquan, China",
+   "geo": {
+    "lat": 39.741,
+    "lon": 98.494
+   },
+   "tier": "lead",
+   "verdict": "fail",
+   "outlets": [
+    "CNSA",
+    "Xinhua",
+    "Reuters"
+   ],
+   "sources": [
+    "South China Morning Post",
+    "Chronicle.lu",
+    "EasternEye"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 2,
+   "headline": "AI doubts return: Kospi plunges 6.2%",
+   "hook": "Kospi falls 6.16% to 4,697.51 as doubts over AI investment return",
+   "points": [
+    "Samsung fell 9.87% and SK Hynix 11.05%; foreign investors sold nearly 1.9 trillion won.",
+    "Taiex closed down 4.8% after falling more than 8%; Nikkei 225 dropped 2.8%.",
+    "Samsung's market capitalization fell to 998 trillion won, below the 1,000 trillion won mark."
+   ],
+   "summary": "Kospi -6.16% to 4,697.51, under 5,000. SK hynix -11.05%, Samsung -9.87% as banks cut targets. Taiex -4.8% after falling 8%; Nikkei -2.8%.",
+   "region": "asia",
+   "section": null,
+   "place": "Seoul, Taipei, Tokyo",
+   "geo": null,
+   "tier": "lead",
+   "verdict": "fail",
+   "outlets": [
+    "Yonhap",
+    "Korea Times",
+    "Al Jazeera"
+   ],
+   "sources": [
+    "THE CHOSUNILBO",
+    "Al Jazeera"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 3,
+   "headline": "US proposes new tariffs on 14 economies",
+   "hook": "US proposes tariffs on 14 economies, citing excess manufacturing capacity",
+   "points": [
+    "Proposed headline rates range from 20% to 40%, capped lower under existing or pending trade deals.",
+    "China faces 20% on top of roughly 25% first-term tariffs, about 45% overall.",
+    "Duties would not take effect until after public hearings that begin on January 25, 2027."
+   ],
+   "summary": "USTR cites 'excess capacity': up to 20% on China, 15% EU, 25% India, 35% Vietnam. China, the EU, Japan, India and 10 others named. Hearings January 2027; not in force yet.",
+   "region": "americas",
+   "section": "TRADE",
+   "place": "Washington",
+   "geo": {
+    "lat": 38.9072,
+    "lon": -77.0369
+   },
+   "tier": "lead",
+   "verdict": "fail",
+   "outlets": [
+    "USTR",
+    "Reuters",
+    "CNBC"
+   ],
+   "sources": [
+    "CNBC",
+    "qazinform"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 4,
+   "headline": "Saudi-led coalition strikes Hodeidah port",
+   "hook": "Saudi-led coalition struck Hodeidah port and said it hit Houthi operational capabilities.",
+   "points": [
+    "Coalition issued an evacuation warning for the port."
+   ],
+   "summary": "Hit Houthi 'operational capabilities'.",
+   "region": "middle-east",
+   "section": null,
+   "place": "Hodeidah",
+   "geo": {
+    "lat": 14.7978,
+    "lon": 42.9545
+   },
+   "tier": "card",
+   "verdict": "unread",
+   "outlets": [],
+   "sources": [
+    "Reuters"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 5,
+   "headline": "Iran says two tankers hit mines, caught fire",
+   "hook": "Iran said two oil tankers hit naval mines and caught fire near the Strait of Hormuz.",
+   "points": [
+    "Iran said the tankers had deactivated identification and navigation systems.",
+    "Iran warned the strait would stay closed until its demands were met.",
+    "An army commander cited seven conditions for reopening the waterway."
+   ],
+   "summary": "IRGC: 'unauthorised route'; unverified.",
+   "region": "middle-east",
+   "section": null,
+   "place": "Hormuz",
+   "geo": {
+    "lat": 26.5667,
+    "lon": 56.25
+   },
+   "tier": "card",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Anadolu Agency",
+    "Telangana Today",
+    "Marine Insight"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 6,
+   "headline": "Ukrainian drones set two refineries ablaze",
+   "hook": "Ukrainian drones hit two Rosneft refineries in Samara Region and set both on fire.",
+   "points": [
+    "The targets were the Syzran and Kuibyshev refineries, both Rosneft-owned.",
+    "A regional governor said 145 drones were shot down and one person was killed.",
+    "Ukraine's forces have struck 16 Russian refineries since the beginning of November."
+   ],
+   "summary": "Syzran and Kuibyshev; Ukraine confirms.",
+   "region": "europe",
+   "section": null,
+   "place": "Samara Region",
+   "geo": {
+    "lat": 53.1959,
+    "lon": 50.1002
+   },
+   "tier": "card",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "FreightWire",
+    "Kyiv Post"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 7,
+   "headline": "Solomon Islands signs security treaty",
+   "hook": "Solomon Islands signed a security treaty with Australia that bans foreign military bases",
+   "points": [
+    "Names Australia its primary security partner; bars foreign military bases on its territory",
+    "Solomon Islands will not renew its security pact with China when its five-year term ends next April",
+    "Wale cited a confidentiality clause in the China pact and said he cannot speak about that matter"
+   ],
+   "summary": "Australia: primary partner; no foreign bases.",
+   "region": "oceania",
+   "section": null,
+   "place": "Canberra",
+   "geo": {
+    "lat": -35.2809,
+    "lon": 149.13
+   },
+   "tier": "card",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "SBS News",
+    "KMIB",
+    "Reuters"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 8,
+   "headline": "UK energy cap to jump 26% in January",
+   "hook": "Ofgem lifted the UK energy price cap 26% from January 1, taking a typical bill to £2,166",
+   "points": [
+    "Cap rises £443 a year, or £36.91 a month, for a typical household in England, Scotland and Wales",
+    "Regulator says the Middle East war keeps wholesale gas prices high; highest cap since 2023",
+    "About 20 million households get a £100 payment from January; 10 million on fixed tariffs unaffected"
+   ],
+   "summary": "£1,723 → £2,166 a year.",
+   "region": "europe",
+   "section": null,
+   "place": "London",
+   "geo": {
+    "lat": 51.5074,
+    "lon": -0.1278
+   },
+   "tier": "card",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "OilPrice.com",
+    "Coventry Telegraph",
+    "The Independent"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 9,
+   "headline": "Flood traps miners in illegal gold pits",
+   "hook": "Flood in an unauthorized gold mine in West Java killed 9; rescuers search for 17 more",
+   "points": [
+    "Heavy rain made the Ciseureuh River overflow into a shaft about 330 feet deep late Monday",
+    "Police got reports about 16 hours later; the mine was illegal so nobody reported it",
+    "325 rescuers used submersible pumps; water in the shaft has not yet receded"
+   ],
+   "summary": "9 dead; 17 believed trapped.",
+   "region": "asia",
+   "section": null,
+   "place": "Bogor",
+   "geo": {
+    "lat": -6.5971,
+    "lon": 106.806
+   },
+   "tier": "card",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Los Angeles Times",
+    "Huron Daily Tribune"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 10,
+   "headline": "Garment minimum wage rises 36%",
+   "hook": "Bangladesh wage board backs a 36% rise in the garment minimum wage after protests",
+   "points": [
+    "The board's chairman said a majority supported a minimum of 17,000 taka a month.",
+    "Workers had demanded 30,000 taka; it is unclear whether they will accept the rise.",
+    "Wages will be revised every three years instead of five; the BGMEA put unrest losses at $428m."
+   ],
+   "summary": "4·2 vote: Tk 12,600 → Tk 17,000.",
+   "region": "asia",
+   "section": null,
+   "place": "Dhaka",
+   "geo": {
+    "lat": 23.8103,
+    "lon": 90.4125
+   },
+   "tier": "card",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "Dhaka Tribune",
+    "kiprinform",
+    "The Hindu"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 11,
+   "headline": "Israeli strike kills Hamas security chief",
+   "hook": "Israeli air strike killed Hamas internal security chief Naeem Abu Nahel in Gaza City",
+   "points": [
+    "Gaza's interior ministry said he was targeted by an aircraft in western Gaza City; he was 50.",
+    "He had held the post since September, when his predecessor was captured in an Israeli raid.",
+    "Six others were killed in two strikes elsewhere in Gaza on Tuesday, responders and officials said."
+   ],
+   "summary": "Abu al-Auf, wife, two daughters killed.",
+   "region": "middle-east",
+   "section": null,
+   "place": "Gaza City",
+   "geo": {
+    "lat": 31.5017,
+    "lon": 34.4668
+   },
+   "tier": "card",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "BBC on MSN"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 12,
+   "headline": "Court throws out Phala Phala report",
+   "hook": "Court set aside the Phala Phala panel report and Parliament's steps based on it",
+   "points": [
+    "Judges declared the Section 89 panel report unlawful and reviewed and set it aside in its entirety.",
+    "Each party must pay its own costs, and an appeal is expected.",
+    "The 2022 panel found preliminary evidence Ramaphosa may have violated the Constitution and the law."
+   ],
+   "summary": "Ramaphosa: report, parliament steps set aside.",
+   "region": "africa",
+   "section": null,
+   "place": "Cape Town",
+   "geo": {
+    "lat": -33.9249,
+    "lon": 18.4241
+   },
+   "tier": "card",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Cape Town ETC",
+    "allAfrica.com"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 13,
+   "headline": "Supermarket stormed, all hostages freed",
+   "hook": null,
+   "points": [],
+   "summary": "One captain killed, four arrested.",
+   "region": "americas",
+   "section": null,
+   "place": "Cartagena",
+   "geo": {
+    "lat": 10.391,
+    "lon": -75.4794
+   },
+   "tier": "card",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "U.S. News & World Report",
+    "DPA",
+    "wiod.iheart"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 14,
+   "headline": "Russian strikes cut power in five regions",
+   "hook": null,
+   "points": [],
+   "summary": "Five killed; nuclear plant on diesel.",
+   "region": "europe",
+   "section": null,
+   "place": "Zaporizhzhia",
+   "geo": {
+    "lat": 47.8388,
+    "lon": 35.1396
+   },
+   "tier": "card",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Al Jazeera",
+    "zamon",
+    "Reuters"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 15,
+   "headline": "RSF drones kill at least 19 in Blue Nile",
+   "hook": "RSF drone attacks killed at least 19 civilians in Sudan's Blue Nile, a rights group said",
+   "points": [
+    "Most casualties were in al-Damazin, where the RSF launched more than 30 explosive drones",
+    "Drone attacks also hit electricity facilities in Damazin and a big dam in Roseires",
+    "No immediate comment from Sudanese authorities or the RSF on the reported casualties"
+   ],
+   "summary": "Homes, power sites hit; 22 injured.",
+   "region": "africa",
+   "section": null,
+   "place": "Ed Damazin",
+   "geo": {
+    "lat": 11.7891,
+    "lon": 34.3597
+   },
+   "tier": "card",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "Anadolu Agency",
+    "Al Jazeera",
+    "The Rio Times"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 17,
+   "headline": "Tokyo: second extra budget, quake aid.",
+   "hook": "Takaichi ordered a second fiscal 2026 extra budget, mainly for disaster response.",
+   "points": [
+    "It is expected to be relatively modest, unlike recent budgets aimed at energy costs.",
+    "Japan was hit by a major earthquake in Kumamoto in July and torrential rains in Chiba in August.",
+    "A draft budget plan calls for reviewing funds, subsidies and tax breaks to curb wasteful spending."
+   ],
+   "summary": null,
+   "region": "asia",
+   "section": null,
+   "place": "Tokyo",
+   "geo": {
+    "lat": 35.6762,
+    "lon": 139.6503
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "The Mainichi"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 18,
+   "headline": "Regulator sues Google for RM60m.",
+   "hook": "Malaysia's regulator sued Google for 600 million ringgit over harmful YouTube content.",
+   "points": [
+    "Two suits seek 300 million ringgit each, over gambling, scams and fraud content and other breaches.",
+    "It sent 74,703 reports from Jan. 1 to Oct. 28; 4,950 drew no response.",
+    "The second suit cites republished content by blogger Papagomo despite a court injunction."
+   ],
+   "summary": null,
+   "region": "asia",
+   "section": null,
+   "place": "Kuala Lumpur",
+   "geo": {
+    "lat": 3.139,
+    "lon": 101.6869
+   },
+   "tier": "brief",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "The Wall Street Journal",
+    "Anadolu"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 19,
+   "headline": "URBTIX hack: about 13m users exposed.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "asia",
+   "section": null,
+   "place": "Hong Kong",
+   "geo": {
+    "lat": 22.3193,
+    "lon": 114.1694
+   },
+   "tier": "brief",
+   "verdict": "unread",
+   "outlets": [],
+   "sources": [
+    "OpenGov Asia"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 20,
+   "headline": "Building collapses: 3 dead, 14 hurt.",
+   "hook": "Several people were trapped when a building collapsed in Baloch Colony, Karachi.",
+   "points": [
+    "The front page lists 3 dead and 14 hurt.",
+    "A headline on the collapse lists 1 dead and 8 hurt."
+   ],
+   "summary": null,
+   "region": "asia",
+   "section": null,
+   "place": "Karachi",
+   "geo": {
+    "lat": 24.8607,
+    "lon": 67.0011
+   },
+   "tier": "brief",
+   "verdict": "unread",
+   "outlets": [],
+   "sources": [
+    "BOL News"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 21,
+   "headline": "Court voids RBI edict on 'bank' assets.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "asia",
+   "section": null,
+   "place": "New Delhi",
+   "geo": {
+    "lat": 28.6139,
+    "lon": 77.209
+   },
+   "tier": "brief",
+   "verdict": null,
+   "outlets": [],
+   "sources": [
+    "News search"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 22,
+   "headline": "Saudi: 4 Houthi drones downed; no casualties.",
+   "hook": "Saudi air defences destroyed four Houthi drones over Ras Tanura, coalition says.",
+   "points": [
+    "Coalition spokesman Turki Al-Maliki said fragments fell and an initial assessment found no injuries.",
+    "The interceptions followed a Saudi-led coalition strike on Yemen's Hodeidah port.",
+    "A day earlier, a Houthi drone hit a Riyadh tower, injuring at least 11 people."
+   ],
+   "summary": null,
+   "region": "middle-east",
+   "section": null,
+   "place": "Ras Tanura",
+   "geo": {
+    "lat": 26.6667,
+    "lon": 50.1667
+   },
+   "tier": "brief",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Al Jazeera",
+    "en.yenisafak"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 23,
+   "headline": "Houthis threaten Jeddah, Saudi Red Sea ports.",
+   "hook": "Houthis threaten Jeddah and other Saudi Red Sea ports over Hodeidah strikes.",
+   "points": [
+    "Saree urged port workers and residents to leave the sites and shipping firms to withdraw vessels.",
+    "A drone hit Riyadh's tallest tower on Tuesday and injured at least 11 people.",
+    "Hodeidah handles food, fuel and humanitarian supplies for northern Yemen."
+   ],
+   "summary": null,
+   "region": "middle-east",
+   "section": null,
+   "place": "Sanaa",
+   "geo": {
+    "lat": 15.3694,
+    "lon": 44.191
+   },
+   "tier": "brief",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Daily Times",
+    "Mathrubhumi English",
+    "The Business Standard"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 24,
+   "headline": "UN: 364,000 displaced since August.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "middle-east",
+   "section": null,
+   "place": "Aden",
+   "geo": {
+    "lat": 12.7855,
+    "lon": 45.0187
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "MTV Lebanon",
+    "وكالة خبر للأنباء"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 25,
+   "headline": "Judges urge dropping case 4000 bribery charge.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "middle-east",
+   "section": null,
+   "place": "Jerusalem",
+   "geo": {
+    "lat": 31.7683,
+    "lon": 35.2137
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Cleveland Jewish News",
+    "The Yeshiva World",
+    "The Irish Times"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 26,
+   "headline": "October 7 inquiry: first bill vote 16-50.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "middle-east",
+   "section": null,
+   "place": "Jerusalem",
+   "geo": {
+    "lat": 31.7683,
+    "lon": 35.2137
+   },
+   "tier": "brief",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "Jerusalem Post"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 27,
+   "headline": "Review: Met racist and misogynist.",
+   "hook": "Review says Met police remain institutionally racist, misogynistic and homophobic.",
+   "points": [
+    "Review found no good progress on any of Casey's 14 recommendations.",
+    "Nine recommendations showed some progress and five limited progress.",
+    "Commissioner Sir Mark Rowley accepted the review's 10 recommendations."
+   ],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "London",
+   "geo": {
+    "lat": 51.5074,
+    "lon": -0.1278
+   },
+   "tier": "brief",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "PinkNews USA",
+    "streamlinefeed"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 28,
+   "headline": "EU-Western Balkans summit: Serbia absent.",
+   "hook": "EU and Western Balkan leaders meet in Brussels; Serbia is absent.",
+   "points": [
+    "Antonio Costa and Ursula von der Leyen chair the summit.",
+    "The EU has earmarked up to 6 billion euros in support for the Western Balkans Growth Plan.",
+    "Serbia's Aleksandar Čupić will not travel; the European Commission confirmed his absence."
+   ],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Brussels",
+   "geo": {
+    "lat": 50.8503,
+    "lon": 4.3517
+   },
+   "tier": "brief",
+   "verdict": "pass",
+   "outlets": [],
+   "sources": [
+    "Albeu.com",
+    "Euronews"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 29,
+   "headline": "24-hour strike halts ferries, regional flights.",
+   "hook": "A 24-hour strike in Greece halts ferries and disrupts metro and regional flights.",
+   "points": [
+    "Unions seek wage increases, restored annual bonuses and more health and education spending.",
+    "Athens metro and trams run only from 09:00 to 18:00; buses run to schedule.",
+    "ADEDY called the public sector strike; rallies are planned in more than 60 cities."
+   ],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Athens",
+   "geo": {
+    "lat": 37.9838,
+    "lon": 23.7275
+   },
+   "tier": "brief",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "UA.NEWS",
+    "Fakti.bg"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 30,
+   "headline": "Eurostar staff strike cancels London trains.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Paris",
+   "geo": {
+    "lat": 48.8566,
+    "lon": 2.3522
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Hindustan Times",
+    "Listickle",
+    "Pioneer Press"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 31,
+   "headline": "Merz defends record 2027 budget.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Berlin",
+   "geo": {
+    "lat": 52.52,
+    "lon": 13.405
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "The Rio Times",
+    "The Local - Germany",
+    "DPA"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 32,
+   "headline": "Poland plans Ukrainian border 'no-fly zone'.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Warsaw",
+   "geo": {
+    "lat": 52.2297,
+    "lon": 21.0122
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "hromadske"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 33,
+   "headline": "Ukraine: hit 3 MiG-31s, 2 Su-34s.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "europe",
+   "section": null,
+   "place": "Savaslevka",
+   "geo": null,
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "RBC Ukraine",
+    "Kyiv Post",
+    "ua.news"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 35,
+   "headline": "Nollywood legend Pete Edochie dies at 79",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "africa",
+   "section": null,
+   "place": null,
+   "geo": {
+    "lat": 59.9139,
+    "lon": 10.7522
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "allAfrica.com",
+    "The Whistler",
+    "Business Post Nigeria"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 36,
+   "headline": "Government rejects Ethiopia's talks offer.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "africa",
+   "section": null,
+   "place": "Port Sudan",
+   "geo": {
+    "lat": 19.6158,
+    "lon": 37.2164
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "News.az"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 37,
+   "headline": "Tinubu seeks ₦3.2trn cut: 2026 budget ₦45.8trn.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "africa",
+   "section": null,
+   "place": "Abuja",
+   "geo": {
+    "lat": 9.0765,
+    "lon": 7.3986
+   },
+   "tier": "brief",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "Daily Independent"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 38,
+   "headline": "Senegal denounces Morocco's CAS 'contact' claim.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "africa",
+   "section": null,
+   "place": "Dakar",
+   "geo": {
+    "lat": 14.7167,
+    "lon": -17.4677
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Agence France-Presse on MSN",
+    "Al Jazeera",
+    "allafrica.com"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 39,
+   "headline": "US GDP revised to 4.3%, from 3.4%.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Washington",
+   "geo": {
+    "lat": 38.9072,
+    "lon": -77.0369
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Securities.io",
+    "kucoin",
+    "News18"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 40,
+   "headline": "Jobless claims fall to 189,000.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Washington",
+   "geo": {
+    "lat": 38.9072,
+    "lon": -77.0369
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Anadolu Agency",
+    "ua.news",
+    "The Economic Times"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 41,
+   "headline": "Dow above 50,000; +0.87%; Nasdaq +1.45%.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "New York",
+   "geo": {
+    "lat": 40.7128,
+    "lon": -74.006
+   },
+   "tier": "brief",
+   "verdict": "fail",
+   "outlets": [],
+   "sources": [
+    "THE CHOSUNILBO"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 42,
+   "headline": "Army detains 5 tons of lead azide.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Iowa",
+   "geo": {
+    "lat": 42,
+    "lon": -93.5
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "USA TODAY",
+    "WTOP",
+    "The Clinton Herald"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 43,
+   "headline": "Carney: Trump hasn't raised defence criticism.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Ottawa",
+   "geo": {
+    "lat": 45.4215,
+    "lon": -75.6972
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "CBC News",
+    "Military.com",
+    "tdtnews.com"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 44,
+   "headline": "Sheinbaum seeks Inés Gómez Mont's extradition.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Mexico City",
+   "geo": {
+    "lat": 19.4326,
+    "lon": -99.1332
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "International Business Times",
+    "Clarín"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 45,
+   "headline": "Lula signs public accounts control law.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "americas",
+   "section": null,
+   "place": "Brasília",
+   "geo": {
+    "lat": -15.7939,
+    "lon": -47.8828
+   },
+   "tier": "brief",
+   "verdict": null,
+   "outlets": [],
+   "sources": [
+    "News search"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 46,
+   "headline": "October inflation 4.1%, from 4.3%.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "oceania",
+   "section": null,
+   "place": "Sydney",
+   "geo": {
+    "lat": -33.8688,
+    "lon": 151.2093
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "CNBC"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 47,
+   "headline": "Apology to LGBTQA+ defence personnel.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "oceania",
+   "section": null,
+   "place": "Canberra",
+   "geo": {
+    "lat": -35.2809,
+    "lon": 149.13
+   },
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Dagens.com India"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 48,
+   "headline": "47,000 women killed by partners or relatives in 2025; five an hour.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "world",
+   "section": null,
+   "place": "UN",
+   "geo": null,
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "India Today",
+    "سانا",
+    "TRT World"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  },
+  {
+   "n": 49,
+   "headline": "Violence against women: 16 days of activism.",
+   "hook": null,
+   "points": [],
+   "summary": null,
+   "region": "world",
+   "section": null,
+   "place": "World",
+   "geo": null,
+   "tier": "brief",
+   "verdict": "partial",
+   "outlets": [],
+   "sources": [
+    "Human Rights Watch",
+    "allAfrica.com"
+   ],
+   "published": "2026-11-25T20:19:22.471Z"
+  }
+ ]
+}

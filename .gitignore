@@ -27,3 +27,7 @@ TASK.md
 prompt.txt
 system-prompt.txt
 transcripts-final.tar.gz
+
+# local scratch artifacts from the build/verification sessions
+build/scratch/
+build/__pycache__/
