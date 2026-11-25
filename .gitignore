@@ -1,1 +1,8 @@
 out/
+.chrome-profile/
+crop_*.png
+news-image-20261125-kit/
+prompt.txt
+system-prompt.txt
+transcripts.tar.gz
+TASK.md

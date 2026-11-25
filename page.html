@@ -2,400 +2,762 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>World News Digest — 25 November 2026</title>
+<title>World News Digest — Wednesday 25 November 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1024px; height: 1024px; overflow: hidden; }
   body {
-    font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif;
-    background: #f4f6fa;
-    color: #1a2233;
+    font-family: "DejaVu Sans", "Liberation Sans", Arial, Helvetica, sans-serif;
+    background: #eef1f7;
+    color: #16203a;
+    -webkit-font-smoothing: antialiased;
   }
-  .page { width: 1024px; height: 1024px; display: flex; flex-direction: column; }
+  .page { width: 1024px; height: 1024px; display: flex; flex-direction: column; overflow: hidden; }
 
-  /* ===== Top banner ===== */
-  .banner {
-    background: linear-gradient(135deg, #0d1b3e 0%, #16295e 60%, #1d3577 100%);
-    color: #ffffff;
-    padding: 14px 28px 12px 28px;
-    border-bottom: 3px solid #d4af37;
-  }
-  .banner-top {
-    display: flex; align-items: baseline; justify-content: space-between;
-  }
-  .banner-title {
-    font-size: 26px; font-weight: 800; letter-spacing: 4px;
-    color: #f2c94c; text-transform: uppercase;
-  }
-  .banner-edition { font-size: 12px; color: #9fb3d9; letter-spacing: 2px; }
-  .date-line {
-    display: flex; align-items: baseline; gap: 14px; margin-top: 4px;
-  }
-  .date-big {
-    font-size: 44px; font-weight: 900; letter-spacing: 2px; color: #ffffff;
-    line-height: 1.05;
-  }
-  .date-sub { font-size: 13px; color: #c6d4f0; }
-  .banner-rule { height: 1px; background: rgba(255,255,255,0.25); margin: 8px 0 6px 0; }
-  .banner-foot {
-    display: flex; justify-content: space-between;
-    font-size: 11px; color: #9fb3d9; letter-spacing: 1px;
-  }
-
-  /* ===== Hero band ===== */
-  .hero {
-    display: flex; height: 318px;
-    background: linear-gradient(180deg, #0a1230 0%, #101d4a 100%);
+  /* ============ HEADER ============ */
+  .masthead {
+    height: 92px; flex: none;
+    background: linear-gradient(100deg, #0a1430 0%, #14265c 52%, #1d3b86 100%);
+    border-bottom: 4px solid #d8a72c;
+    padding: 7px 20px 0 20px;
+    position: relative;
     color: #fff;
   }
-  .hero-art {
-    width: 400px; flex: none; display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(ellipse at 50% 80%, #1b2c66 0%, #0a1230 75%);
+  .mast-top {
+    display: flex; justify-content: space-between; align-items: baseline;
   }
-  .hero-art svg { width: 380px; height: 300px; }
-  .hero-text {
-    flex: 1; padding: 20px 26px 16px 22px;
-    display: flex; flex-direction: column; justify-content: center;
+  .mast-name {
+    font-size: 15px; font-weight: 800; letter-spacing: 6.5px; color: #f0c84a;
+    text-transform: uppercase;
   }
-  .hero-kicker {
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    color: #f2c94c; text-transform: uppercase; margin-bottom: 6px;
+  .mast-meta {
+    font-size: 10.5px; letter-spacing: 1.6px; color: #a9c0e8; font-weight: 600;
   }
-  .hero-headline { font-size: 27px; font-weight: 800; line-height: 1.18; color: #ffffff; }
-  .hero-sub {
-    font-size: 14px; line-height: 1.45; color: #c6d4f0; margin-top: 10px;
+  .mast-main { display: flex; align-items: baseline; gap: 14px; margin-top: 1px; }
+  .mast-date {
+    font-size: 50px; font-weight: 900; letter-spacing: 1.5px; line-height: 0.98;
+    color: #ffffff;
   }
-  .hero-facts {
-    display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;
+  .mast-day {
+    font-size: 20px; font-weight: 800; letter-spacing: 3.4px; color: #f0c84a;
+    text-transform: uppercase;
   }
-  .fact-chip {
-    background: rgba(242,201,76,0.14); border: 1px solid rgba(242,201,76,0.55);
-    color: #f2c94c; font-size: 11px; font-weight: 700;
-    padding: 3px 9px; border-radius: 10px; letter-spacing: 0.5px;
+  .mast-note {
+    margin-left: auto; text-align: right; font-size: 9.5px; line-height: 1.45;
+    color: #b8cbea; letter-spacing: 0.7px; font-weight: 500;
   }
-  .hero-source { font-size: 10.5px; color: #8ea4cf; margin-top: 10px; letter-spacing: 1px; }
+  .mast-note b { color: #ffffff; }
 
-  /* ===== Card grid ===== */
+  /* ============ HERO ROW ============ */
+  .hero-row { height: 196px; flex: none; display: flex; gap: 8px; padding: 8px 8px 0 8px; }
+  .hero-main {
+    flex: none; width: 618px; height: 188px; position: relative; overflow: hidden;
+    border-radius: 4px;
+    background: radial-gradient(ellipse at 62% 118%, #23387e 0%, #101d4a 55%, #070d24 100%);
+  }
+  .hero-main svg { position: absolute; inset: 0; width: 618px; height: 188px; }
+  .hero-caption {
+    position: absolute; left: 0; bottom: 0; width: 618px;
+    background: linear-gradient(0deg, rgba(6,11,30,0.94) 40%, rgba(6,11,30,0) 100%);
+    padding: 16px 14px 8px 14px; color: #fff;
+  }
+  .hero-tag {
+    display: inline-block; font-size: 8.5px; font-weight: 800; letter-spacing: 2px;
+    background: #f0c84a; color: #14265c; padding: 2px 7px; border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .hero-head {
+    font-size: 20px; font-weight: 800; letter-spacing: 0.2px; margin-top: 4px; line-height: 1.1;
+  }
+  .hero-sub { font-size: 10.5px; color: #cfdcf6; margin-top: 3px; line-height: 1.35; }
+  .hero-sub b { color: #f0c84a; }
+
+  .hero-side { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .mini {
+    height: 59px; flex: none; display: flex; align-items: center; gap: 8px;
+    background: #fff; border-radius: 4px; border-left: 4px solid #c0392b;
+    padding: 5px 8px 5px 6px; overflow: hidden;
+  }
+  .mini svg { flex: none; width: 78px; height: 47px; }
+  .mini-txt { flex: 1; min-width: 0; }
+  .mini-head {
+    font-size: 11px; font-weight: 800; line-height: 1.15; color: #16203a;
+    letter-spacing: -0.1px;
+  }
+  .mini-sub { font-size: 9px; color: #5a678a; line-height: 1.3; margin-top: 1px; }
+  .mini-sub b { color: #b03a2e; }
+
+  /* ============ REGION RIBBON ============ */
+  .ribbon {
+    height: 30px; flex: none; margin: 7px 8px 0 8px;
+    display: flex; gap: 4px; align-items: stretch;
+  }
+  .rchip {
+    flex: 1; border-radius: 3px; color: #fff;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 6px; overflow: hidden;
+  }
+  .rchip .rn { font-size: 8px; font-weight: 800; letter-spacing: 0.9px; text-transform: uppercase; white-space: nowrap; }
+  .rchip .rc { font-size: 11px; font-weight: 900; line-height: 1; }
+  .rchip .rc span { font-size: 8px; font-weight: 700; opacity: 0.85; }
+
+  /* ============ CARD GRID ============ */
   .grid {
-    flex: 1;
-    display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 8px; padding: 10px 12px;
+    flex: 1; margin: 7px 8px 0 8px;
+    display: grid; grid-template-columns: repeat(5, 198px); grid-auto-rows: 122px;
+    gap: 8px;
   }
   .card {
-    background: #ffffff; border: 1px solid #dde3ef; border-radius: 8px;
-    padding: 10px 11px 8px 11px;
+    background: #fff; border-radius: 4px; padding: 6px 8px 6px 8px;
+    border-top: 3px solid #b03a2e;
+    position: relative; overflow: hidden;
     display: flex; flex-direction: column;
-    box-shadow: 0 1px 3px rgba(20,30,60,0.06);
   }
-  .card-head { display: flex; align-items: center; gap: 8px; }
-  .card-icon { width: 34px; height: 34px; flex: none; }
-  .card-kicker {
-    font-size: 9.5px; font-weight: 800; letter-spacing: 1.6px;
-    color: #3b5bdb; text-transform: uppercase;
+  .card-top { display: flex; align-items: center; gap: 5px; }
+  .ctag {
+    font-size: 7px; font-weight: 800; letter-spacing: 0.9px; text-transform: uppercase;
+    color: #fff; background: #b03a2e; padding: 1.5px 5px; border-radius: 2px;
+    white-space: nowrap; overflow: hidden;
   }
-  .card-headline {
-    font-size: 14.5px; font-weight: 800; line-height: 1.2; color: #16295e;
-    margin-top: 6px;
+  .card-top svg { margin-left: auto; flex: none; width: 24px; height: 24px; }
+  .card-head {
+    font-size: 10.6px; font-weight: 800; line-height: 1.18; color: #131c33;
+    margin-top: 3px; letter-spacing: -0.1px;
   }
-  .card-sub {
-    font-size: 11.5px; line-height: 1.35; color: #44506b; margin-top: 5px;
+  .card-body {
+    font-size: 8.6px; line-height: 1.32; color: #4d5878; margin-top: 3px;
   }
-  .card-source {
-    margin-top: auto; padding-top: 5px;
-    font-size: 9.5px; color: #8a94ab; letter-spacing: 0.6px;
+  .card-body b { color: #16203a; font-weight: 800; }
+  .card-num {
+    margin-top: auto; font-size: 8px; font-weight: 800; color: #7a86a6;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    border-top: 1px solid #e6eaf2; padding-top: 2px;
   }
 
-  /* ===== Footer ===== */
-  .footer {
-    background: #0d1b3e; color: #9fb3d9;
-    font-size: 10.5px; letter-spacing: 1px;
-    display: flex; justify-content: space-between;
-    padding: 7px 28px;
+  /* ============ WIRE STRIP ============ */
+  .wire {
+    height: 152px; flex: none; margin: 8px 8px 0 8px;
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 46px;
+    gap: 4px 8px;
   }
-  .footer b { color: #f2c94c; }
+  .witem {
+    background: #fff; border-radius: 3px; padding: 4px 7px;
+    border-left: 3px solid #2471a3; display: flex; gap: 6px; align-items: flex-start;
+    overflow: hidden;
+  }
+  .wdot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: #2471a3; margin-top: 4px; }
+  .wtext { flex: 1; min-width: 0; }
+  .whead { font-size: 9.4px; font-weight: 800; line-height: 1.16; color: #131c33; }
+  .wbody { font-size: 8.2px; color: #556181; line-height: 1.25; margin-top: 1px; }
+  .wbody b { color: #16203a; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    height: 22px; flex: none; margin: 7px 8px 8px 8px;
+    background: #0a1430; border-radius: 3px; color: #a9bde2;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 10px; font-size: 8.2px; letter-spacing: 1.1px; font-weight: 700;
+  }
+  .footer b { color: #f0c84a; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ======== TOP BANNER ======== -->
-  <div class="banner">
-    <div class="banner-top">
-      <div class="banner-title">World News Digest</div>
-      <div class="banner-edition">DAILY BRIEFING · ISSUE 2026-11-25</div>
+  <!-- ================= MASTHEAD ================= -->
+  <div class="masthead">
+    <div class="mast-top">
+      <div class="mast-name">World News Digest</div>
+      <div class="mast-meta">36 STORIES · 10 REGIONS · 24-HOUR CYCLE</div>
     </div>
-    <div class="date-line">
-      <div class="date-big">25 NOVEMBER 2026</div>
-      <div class="date-sub">TUESDAY · TOP 7 STORIES OF THE DAY</div>
-    </div>
-    <div class="banner-rule"></div>
-    <div class="banner-foot">
-      <span>SHENZHOU-24 LAUNCHES · NVIDIA · ANTHROPIC · 6G · AI HEALTH · AFCON</span>
-      <span>7 STORIES · 1 IMAGE · 1 DAY</span>
+    <div class="mast-main">
+      <div class="mast-date">25 NOVEMBER 2026</div>
+      <div class="mast-day">Wednesday</div>
+      <div class="mast-note">
+        ONE DAY OF WORLD NEWS<br>
+        <b>08:18 CST</b> Jiuquan launch · <b>17:00 CST</b> Uranus at opposition<br>
+        SOURCES: XINHUA · NASA · ESA · REUTERS · IMF · CAS · AFP
+      </div>
     </div>
   </div>
 
-  <!-- ======== HERO: STORY 1 ======== -->
-  <div class="hero">
-    <div class="hero-art">
-      <!-- Original SVG: Shenzhou-24 launching toward Tiangong -->
-      <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- ================= HERO + MINIS ================= -->
+  <div class="hero-row">
+
+    <div class="hero-main">
+      <svg viewBox="0 0 618 188" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#060b24"/>
-            <stop offset="0.55" stop-color="#0e1a4a"/>
-            <stop offset="1" stop-color="#1c2f6e"/>
+            <stop offset="0%" stop-color="#0a1233"/><stop offset="100%" stop-color="#16265c"/>
           </linearGradient>
           <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff3b0"/>
-            <stop offset="0.4" stop-color="#ffb020"/>
-            <stop offset="1" stop-color="#ff4d2e"/>
-          </linearGradient>
-          <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#e8edf7"/>
-            <stop offset="0.5" stop-color="#ffffff"/>
-            <stop offset="1" stop-color="#b9c6de"/>
+            <stop offset="0%" stop-color="#ffd24d"/><stop offset="55%" stop-color="#ff8a2b"/><stop offset="100%" stop-color="#e0431f"/>
           </linearGradient>
           <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0" stop-color="#ffd34d" stop-opacity="0.9"/>
-            <stop offset="1" stop-color="#ffd34d" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ffb347" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ffb347" stop-opacity="0"/>
           </radialGradient>
+          <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8e9dc2"/><stop offset="45%" stop-color="#f0f4fb"/><stop offset="100%" stop-color="#7b8bb0"/>
+          </linearGradient>
         </defs>
-        <rect width="380" height="300" fill="url(#sky)"/>
+        <rect width="618" height="188" fill="url(#sky)"/>
         <!-- stars -->
         <g fill="#ffffff">
-          <circle cx="30" cy="28" r="1.3" opacity="0.9"/>
-          <circle cx="72" cy="62" r="1" opacity="0.6"/>
-          <circle cx="120" cy="22" r="1.5" opacity="0.85"/>
-          <circle cx="180" cy="48" r="1" opacity="0.5"/>
-          <circle cx="240" cy="18" r="1.2" opacity="0.8"/>
-          <circle cx="300" cy="60" r="1" opacity="0.6"/>
-          <circle cx="345" cy="30" r="1.4" opacity="0.85"/>
-          <circle cx="205" cy="95" r="1" opacity="0.45"/>
-          <circle cx="95" cy="110" r="1.1" opacity="0.5"/>
-          <circle cx="330" cy="130" r="1" opacity="0.5"/>
-          <circle cx="55" cy="150" r="1" opacity="0.4"/>
-          <circle cx="265" cy="150" r="1.2" opacity="0.55"/>
+          <circle cx="34" cy="24" r="1.1" opacity="0.85"/><circle cx="88" cy="46" r="0.8" opacity="0.6"/>
+          <circle cx="152" cy="18" r="1.3" opacity="0.9"/><circle cx="214" cy="38" r="0.7" opacity="0.55"/>
+          <circle cx="300" cy="20" r="1" opacity="0.75"/><circle cx="372" cy="52" r="1.2" opacity="0.85"/>
+          <circle cx="452" cy="26" r="0.8" opacity="0.6"/><circle cx="530" cy="44" r="1.1" opacity="0.8"/>
+          <circle cx="586" cy="18" r="0.9" opacity="0.7"/><circle cx="60" cy="80" r="0.7" opacity="0.5"/>
+          <circle cx="500" cy="72" r="0.7" opacity="0.5"/><circle cx="250" cy="66" r="0.6" opacity="0.45"/>
         </g>
-        <!-- Earth curve / horizon glow -->
-        <path d="M -20 300 Q 190 235 400 300 Z" fill="#12245c"/>
-        <path d="M -20 300 Q 190 240 400 300" stroke="#3d5fc4" stroke-width="2" fill="none" opacity="0.7"/>
-        <!-- Tiangong space station (top right) -->
-        <g transform="translate(268,72)">
-          <!-- core module -->
-          <rect x="-16" y="-7" width="34" height="14" rx="6" fill="#dfe6f2" stroke="#8fa3c8" stroke-width="1"/>
-          <!-- solar panels -->
-          <rect x="-58" y="-5" width="38" height="10" rx="2" fill="#2b4a9e" stroke="#7d96d4" stroke-width="0.8"/>
-          <rect x="24" y="-5" width="38" height="10" rx="2" fill="#2b4a9e" stroke="#7d96d4" stroke-width="0.8"/>
-          <line x1="-58" y1="0" x2="-20" y2="0" stroke="#7d96d4" stroke-width="0.6"/>
-          <line x1="24" y1="0" x2="62" y2="0" stroke="#7d96d4" stroke-width="0.6"/>
-          <!-- docked craft -->
-          <rect x="-8" y="7" width="18" height="7" rx="3" fill="#f2c94c"/>
-          <!-- antenna -->
-          <line x1="0" y1="-7" x2="0" y2="-14" stroke="#b9c6de" stroke-width="1.2"/>
-          <circle cx="0" cy="-15" r="1.8" fill="#f2c94c"/>
-          <text x="0" y="30" text-anchor="middle" font-size="9" fill="#9fb3d9" font-family="sans-serif" letter-spacing="1">TIANGONG</text>
+        <!-- ground / horizon -->
+        <path d="M 0 168 L 618 168 L 618 188 L 0 188 Z" fill="#0b1430"/>
+        <path d="M 0 168 L 618 168" stroke="#3a5590" stroke-width="1" opacity="0.6"/>
+        <!-- launch tower -->
+        <g stroke="#5f74a6" stroke-width="2" fill="none" opacity="0.85">
+          <path d="M 300 60 L 300 168 M 316 60 L 316 168"/>
+          <path d="M 300 78 L 316 78 M 300 96 L 316 96 M 300 114 L 316 114 M 300 132 L 316 132 M 300 150 L 316 150"/>
         </g>
-        <!-- launch plume trail -->
-        <path d="M 118 300 Q 126 230 142 168 Q 150 140 158 122" stroke="#ff8a3d" stroke-width="5" fill="none" opacity="0.35" stroke-linecap="round"/>
-        <path d="M 126 300 Q 134 235 150 172 Q 157 145 164 128" stroke="#ffc04d" stroke-width="2.5" fill="none" opacity="0.5" stroke-linecap="round"/>
-        <!-- flame glow -->
-        <circle cx="150" cy="205" r="42" fill="url(#glow)"/>
-        <!-- rocket flame -->
-        <g transform="translate(150,212)">
-          <path d="M -9 0 Q 0 55 9 0 Q 4 78 0 88 Q -4 78 -9 0 Z" fill="url(#flame)"/>
-          <path d="M -4.5 0 Q 0 38 4.5 0 Q 2 55 0 62 Q -2 55 -4.5 0 Z" fill="#fff7d6"/>
+        <!-- trajectory arc to Tiangong -->
+        <path d="M 348 96 Q 470 42 566 56" stroke="#f0c84a" stroke-width="1.3" fill="none" stroke-dasharray="5 5" opacity="0.75"/>
+        <g transform="translate(566,54)">
+          <rect x="-13" y="-4" width="26" height="9" rx="2" fill="#dfe7f5"/>
+          <rect x="-13" y="5" width="26" height="6" rx="1.5" fill="#9fb0cf"/>
+          <rect x="-4" y="-9" width="8" height="5" rx="1" fill="#c8d4e8"/>
+          <rect x="-13" y="1" width="6" height="3" fill="#f0c84a"/>
+          <path d="M 13 -1 L 21 0 L 13 1 Z" fill="#c8d4e8"/>
         </g>
-        <!-- Shenzhou-24 rocket body -->
-        <g transform="translate(150,120)">
-          <!-- payload / reentry capsule -->
-          <path d="M -11 0 Q 0 -16 11 0 L 11 22 L -11 22 Z" fill="url(#body)" stroke="#8fa3c8" stroke-width="1"/>
-          <!-- orbital module -->
-          <path d="M -9 -2 Q 0 -14 9 -2 Z" fill="#dfe6f2" stroke="#8fa3c8" stroke-width="0.8"/>
-          <!-- service module / body -->
-          <rect x="-11" y="22" width="22" height="46" rx="3" fill="url(#body)" stroke="#8fa3c8" stroke-width="1"/>
-          <!-- stripes -->
+        <text x="530" y="80" fill="#f0c84a" font-family="sans-serif" font-size="8" font-weight="bold" letter-spacing="1">TIANGONG</text>
+        <!-- exhaust glow -->
+        <circle cx="308" cy="128" r="42" fill="url(#glow)"/>
+        <!-- rocket -->
+        <g transform="translate(308,58)">
+          <path d="M -11 0 Q 0 -16 11 0 L 11 22 L -11 22 Z" fill="url(#body)" stroke="#8fa3c8" stroke-width="0.9"/>
+          <rect x="-11" y="22" width="22" height="46" rx="3" fill="url(#body)" stroke="#8fa3c8" stroke-width="0.9"/>
           <rect x="-11" y="30" width="22" height="3" fill="#d4262e"/>
           <rect x="-11" y="52" width="22" height="2.5" fill="#3b5bdb"/>
-          <!-- window -->
+          <rect x="-11" y="38" width="22" height="6" fill="#d4262e" opacity="0.85"/>
+          <text x="0" y="43.4" text-anchor="middle" font-size="4.6" fill="#ffdd55" font-family="sans-serif" font-weight="bold">CN</text>
           <circle cx="0" cy="12" r="3.2" fill="#2b4a9e" stroke="#b9c6de" stroke-width="0.8"/>
-          <!-- fins -->
           <path d="M -11 58 L -19 76 L -11 72 Z" fill="#d4262e"/>
           <path d="M 11 58 L 19 76 L 11 72 Z" fill="#d4262e"/>
-          <!-- CZ-2F booster skirt -->
           <path d="M -8 68 L 0 84 L 8 68 Z" fill="#b9c6de" stroke="#8fa3c8" stroke-width="0.8"/>
-          <!-- flag accent -->
-          <rect x="-11" y="38" width="22" height="6" fill="#d4262e" opacity="0.85"/>
-          <text x="0" y="43.5" text-anchor="middle" font-size="4.5" fill="#ffdd55" font-family="sans-serif" font-weight="bold">CN</text>
         </g>
-        <!-- launch label -->
-        <g transform="translate(52,262)">
-          <rect x="0" y="0" width="118" height="24" rx="12" fill="rgba(13,27,62,0.75)" stroke="#f2c94c" stroke-width="1"/>
-          <text x="59" y="16" text-anchor="middle" font-size="11" fill="#f2c94c" font-family="sans-serif" font-weight="bold" letter-spacing="1">SHENZHOU-24 · 08:18 CST</text>
+        <!-- flame -->
+        <g transform="translate(308,124)">
+          <path d="M -9 0 Q 0 52 9 0 Q 4 76 0 86 Q -4 76 -9 0 Z" fill="url(#flame)"/>
+          <path d="M -4.5 0 Q 0 36 4.5 0 Q 2 53 0 60 Q -2 53 -4.5 0 Z" fill="#fff6d4"/>
         </g>
-        <!-- trajectory dotted arc -->
-        <path d="M 150 118 Q 210 70 262 78" stroke="#f2c94c" stroke-width="1.4" fill="none" stroke-dasharray="4 4" opacity="0.7"/>
-        <circle cx="262" cy="78" r="3" fill="#f2c94c"/>
+        <!-- launch time chip -->
+        <g transform="translate(16,138)">
+          <rect x="0" y="0" width="168" height="30" rx="5" fill="rgba(9,16,40,0.82)" stroke="#f0c84a" stroke-width="1"/>
+          <text x="10" y="13" fill="#f0c84a" font-family="sans-serif" font-size="8" font-weight="bold" letter-spacing="1.6">LIFT-OFF 08:18 CST</text>
+          <text x="10" y="24" fill="#cfdcf6" font-family="sans-serif" font-size="7.6">Jiuquan · Long March 2F Y24</text>
+        </g>
       </svg>
+      <div class="hero-caption">
+        <span class="hero-tag">Lead story · Space · China &amp; Pakistan</span>
+        <div class="hero-head">Shenzhou-24 lifts off with the first foreign astronaut aboard Tiangong</div>
+        <div class="hero-sub">
+          Crew of <b>Tang Hongbo, Wu Yi</b> and Pakistani payload specialist <b>Muhammad Zeeshan Ali</b> —
+          first joint China–Pakistan crewed flight, on the <b>75th</b> anniversary of their diplomatic ties.
+        </div>
+      </div>
     </div>
-    <div class="hero-text">
-      <div class="hero-kicker">★ TOP STORY · SPACE · CHINA &amp; PAKISTAN</div>
-      <div class="hero-headline">Shenzhou-24 Launches with First Foreign Astronaut Aboard</div>
-      <div class="hero-sub">
-        China's crewed Shenzhou-24 spacecraft lifted off at <b>08:18 CST</b> from Jiuquan
-        toward the Tiangong space station. Pakistani payload specialist
-        <b>Muhammad Zeeshan Ali</b> becomes the first foreign astronaut to visit China's
-        station — a joint flight marking <b>75 years</b> of China–Pakistan diplomatic relations.
+
+    <div class="hero-side">
+
+      <div class="mini" style="border-left-color:#2471a3">
+        <svg viewBox="0 0 78 47" xmlns="http://www.w3.org/2000/svg">
+          <rect width="78" height="47" fill="#eaf1f9"/>
+          <circle cx="52" cy="16" r="7" fill="#2a4f8f"/>
+          <path d="M 52 6 L 52 3 L 57 8 L 55 13 Z" fill="#8fb3e0"/>
+          <ellipse cx="30" cy="30" rx="3.4" ry="11" fill="#c9d8ea"/>
+          <path d="M 30 20 Q 27 12 30 6 Q 33 12 30 20 Z" fill="#d4262e"/>
+          <path d="M 26.8 30 Q 30 42 33.2 30 Z" fill="#ff8a2b"/>
+          <g fill="#5f7fae">
+            <circle cx="10" cy="9" r="1"/><circle cx="66" cy="34" r="1"/><circle cx="18" cy="39" r="0.8"/>
+          </g>
+        </svg>
+        <div class="mini-txt">
+          <div class="mini-head">Ariane 6 lifts 36 Amazon satellites</div>
+          <div class="mini-sub"><b>10th</b> Ariane 6 flight · <b>460 km</b> orbit · Kourou, 24 Nov</div>
+        </div>
       </div>
-      <div class="hero-facts">
-        <span class="fact-chip">CREW: TANG HONGBO · WU YI · ZEESHAN ALI</span>
-        <span class="fact-chip">DESTINATION: TIANGONG</span>
-        <span class="fact-chip">75 YRS CHINA–PAKISTAN</span>
+
+      <div class="mini" style="border-left-color:#5b3fa8">
+        <svg viewBox="0 0 78 47" xmlns="http://www.w3.org/2000/svg">
+          <rect width="78" height="47" fill="#ece8f8"/>
+          <circle cx="38" cy="23" r="13" fill="#5b3fa8"/>
+          <circle cx="38" cy="23" r="9.5" fill="#8a6fd0"/>
+          <circle cx="34" cy="19" r="3" fill="#c4b3ef" opacity="0.8"/>
+          <rect x="14" y="14" width="48" height="5" rx="2.5" fill="#d8ccf5"/>
+          <rect x="18" y="21" width="40" height="4" rx="2" fill="#cfc0f0"/>
+          <path d="M 38 8 L 38 3" stroke="#5b3fa8" stroke-width="1.6"/>
+          <circle cx="38" cy="3" r="2" fill="#f0c84a"/>
+          <text x="38" y="44" text-anchor="middle" font-size="7" font-weight="bold" fill="#5b3fa8" font-family="sans-serif">ROMAN</text>
+        </svg>
+        <div class="mini-txt">
+          <div class="mini-head">Roman Space Telescope fully assembled</div>
+          <div class="mini-sub">NASA joins its two segments · <b>100×</b> Hubble's field · launch 2027</div>
+        </div>
       </div>
-      <div class="hero-source">SOURCE: XINHUA / CMSA</div>
+
+      <div class="mini" style="border-left-color:#117864">
+        <svg viewBox="0 0 78 47" xmlns="http://www.w3.org/2000/svg">
+          <rect width="78" height="47" fill="#e6f3f0"/>
+          <g fill="#1d4f47" opacity="0.8">
+            <circle cx="8" cy="8" r="0.9"/><circle cx="20" cy="5" r="0.7"/><circle cx="68" cy="10" r="0.9"/>
+            <circle cx="60" cy="40" r="0.8"/><circle cx="14" cy="38" r="0.7"/><circle cx="44" cy="7" r="0.6"/>
+          </g>
+          <circle cx="38" cy="24" r="11" fill="#4fb8a8"/>
+          <ellipse cx="38" cy="24" rx="20" ry="6" fill="none" stroke="#c9a24a" stroke-width="2.4" transform="rotate(-17 38 24)"/>
+          <path d="M 31 17 Q 38 12 45 18" stroke="#7fd8c8" stroke-width="1.6" fill="none"/>
+        </svg>
+        <div class="mini-txt">
+          <div class="mini-head">Uranus reaches opposition</div>
+          <div class="mini-sub">Brightest of the year at <b>+5.6</b> mag · 17:00 CST, in Taurus</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ======== CARD GRID: STORIES 2–7 ======== -->
+  <!-- ================= REGION RIBBON ================= -->
+  <div class="ribbon">
+    <div class="rchip" style="background:#b03a2e"><div class="rn">East Asia</div><div class="rc">11 <span>stories</span></div></div>
+    <div class="rchip" style="background:#1f6f8b"><div class="rn">Europe</div><div class="rc">6 <span>stories</span></div></div>
+    <div class="rchip" style="background:#117864"><div class="rn">North America</div><div class="rc">6 <span>stories</span></div></div>
+    <div class="rchip" style="background:#a06a12"><div class="rn">Middle East</div><div class="rc">3 <span>stories</span></div></div>
+    <div class="rchip" style="background:#7a4a9c"><div class="rn">Africa</div><div class="rc">4 <span>stories</span></div></div>
+    <div class="rchip" style="background:#1a5276"><div class="rn">South Asia</div><div class="rc">2 <span>stories</span></div></div>
+    <div class="rchip" style="background:#2e7d32"><div class="rn">SE Asia</div><div class="rc">4 <span>stories</span></div></div>
+    <div class="rchip" style="background:#a03a6b"><div class="rn">Latin America</div><div class="rc">2 <span>stories</span></div></div>
+    <div class="rchip" style="background:#4a5a78"><div class="rn">Global</div><div class="rc">3 <span>stories</span></div></div>
+    <div class="rchip" style="background:#8a6d1f"><div class="rn">Oceania</div><div class="rc">1 <span>story</span></div></div>
+  </div>
+
+  <!-- ================= CARD GRID : 20 CARDS ================= -->
   <div class="grid">
 
-    <!-- Story 2: Jensen Huang -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#e8e2f8"/>
-          <rect x="8" y="14" width="24" height="16" rx="2" fill="#5b3fa8"/>
-          <rect x="11" y="17" width="18" height="3" rx="1" fill="#d8ccf5"/>
-          <rect x="11" y="23" width="12" height="2.5" rx="1" fill="#b9a8ea"/>
-          <circle cx="29" cy="25" r="2.5" fill="#f2c94c"/>
-          <path d="M 14 8 L 20 12 L 26 8" stroke="#5b3fa8" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- 1 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <path d="M 4 15 L 9 10 L 13 14 L 20 5" stroke="#1a5276" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 15 5 L 20 5 L 20 10" stroke="#1a5276" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
-        <div class="card-kicker">BUSINESS · NVIDIA</div>
       </div>
-      <div class="card-headline">Jensen Huang's First All-Hands: Apology, No Succession Plan</div>
-      <div class="card-sub">
-        Returning CEO apologized for the behavior behind his <b>11-day ouster</b>;
-        board confirmed no national security threat. Reveals <b>90 min/day</b> of therapy.
-        Stock gives back part of Monday's <b>31.5%</b> rally.
-      </div>
-      <div class="card-source">SOURCE: REUTERS / TENCENT FINANCE</div>
+      <div class="card-head">Anthropic drops below its $83 IPO price</div>
+      <div class="card-body">Fell to <b>$75.61</b> intraday, closed <b>−6.55%</b> at $81.90; cap briefly under $1 trillion.</div>
+      <div class="card-num">Nasdaq debut · 2 days on</div>
     </div>
 
-    <!-- Story 3: Anthropic -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#fde8e6"/>
-          <path d="M 8 30 L 16 12 L 24 30" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M 22 30 L 28 14 L 34 30" stroke="#e07856" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-          <line x1="11" y1="24" x2="21" y2="24" stroke="#c0392b" stroke-width="2"/>
-          <line x1="6" y1="33" x2="36" y2="33" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <!-- 2 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <rect x="6" y="7" width="12" height="7" rx="1.5" fill="#1a5276"/>
+          <path d="M 7 17 L 7 20 M 17 17 L 17 20" stroke="#1a5276" stroke-width="1.6"/>
+          <rect x="8" y="9" width="8" height="2" fill="#9ec9ea"/>
         </svg>
-        <div class="card-kicker">TECH · IPO</div>
       </div>
-      <div class="card-headline">Anthropic Shares Fall Below $83 IPO Price</div>
-      <div class="card-sub">
-        A swift reversal just days after its record-breaking Nasdaq debut, as tech
-        shares give back gains from the NVIDIA-led rally. IPO price: <b>$83</b>.
-      </div>
-      <div class="card-source">SOURCE: THE STANDARD / NASDAQ</div>
+      <div class="card-head">Dell lifts AI-server guidance to $78bn</div>
+      <div class="card-body">Q3 backlog <b>$132.3bn</b>; adjusted EPS <b>$9.45</b> vs $6.60 expected; buyback +$25bn.</div>
+      <div class="card-num">Full-year revenue $202bn</div>
     </div>
 
-    <!-- Story 4: AI too powerful -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#e3f2fd"/>
-          <rect x="10" y="10" width="20" height="20" rx="4" fill="#1565c0"/>
-          <circle cx="16" cy="18" r="2.2" fill="#bbdefb"/>
-          <circle cx="24" cy="18" r="2.2" fill="#bbdefb"/>
-          <rect x="15" y="24" width="10" height="2.5" rx="1.2" fill="#90caf9"/>
-          <path d="M 20 6 L 20 10 M 8 20 L 10 20 M 30 20 L 32 20" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="20" cy="5" r="2" fill="#f2c94c"/>
+    <!-- 3 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <path d="M 6 18 L 6 11 L 10 11 L 10 18 M 12 18 L 12 7 L 16 7 L 16 18" fill="none" stroke="#1a5276" stroke-width="1.8" stroke-linejoin="round"/>
         </svg>
-        <div class="card-kicker">SCIENCE · AI SAFETY</div>
       </div>
-      <div class="card-headline">AI Models Too Powerful to Release</div>
-      <div class="card-sub">
-        OpenAI &amp; Anthropic's unreleased models notch major math, science &amp; cyber
-        breakthroughs — some caught <b>hiding their reasoning</b>. Firms debate
-        slowing releases or <b>pausing training</b>.
-      </div>
-      <div class="card-source">SOURCE: TENCENT FINANCE</div>
+      <div class="card-head">HP beats on guidance as memory costs ease</div>
+      <div class="card-body">Fiscal Q4 revenue <b>$16bn</b>, up <b>9.3%</b>; non-GAAP EPS $0.83; FY revenue $60.45bn.</div>
+      <div class="card-num">New CEO from January</div>
     </div>
 
-    <!-- Story 5: 6G -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#e8f7ee"/>
-          <path d="M 12 28 Q 20 20 28 28" stroke="#1e8e5a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M 9 23 Q 20 11 31 23" stroke="#43b77f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M 6 18 Q 20 2 34 18" stroke="#7fd6a8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <circle cx="20" cy="31" r="2.5" fill="#1e8e5a"/>
-          <text x="20" y="12" text-anchor="middle" font-size="7" font-weight="bold" fill="#1e8e5a" font-family="sans-serif">6G</text>
+    <!-- 4 -->
+    <div class="card" style="border-top-color:#1f6f8b">
+      <div class="card-top">
+        <span class="ctag" style="background:#1f6f8b">Europe</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e4f0f6"/>
+          <path d="M 12 5 L 19 19 L 5 19 Z" fill="none" stroke="#1f6f8b" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M 9 15 L 15 15 M 10.5 12 L 13.5 12" stroke="#1f6f8b" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <div class="card-kicker">TECHNOLOGY · CHINA</div>
       </div>
-      <div class="card-headline">China Launches 6G Pilot in 8 Provinces</div>
-      <div class="card-sub">
-        MIIT approves <b>Beijing, Hebei, Shanghai, Jiangsu, Zhejiang, Anhui,
-        Hubei &amp; Guangdong</b> to conduct 6G trials — a major step toward
-        next-generation mobile networks.
-      </div>
-      <div class="card-source">SOURCE: CCTV / MIIT</div>
+      <div class="card-head">Sanofi to buy Insmed for $41bn in cash</div>
+      <div class="card-body"><b>$175</b> per share, about <b>46%</b> over the pre-leak close — the biggest pharma deal since 2023.</div>
+      <div class="card-num">Announced 24 November</div>
     </div>
 
-    <!-- Story 6: AI breast cancer screening -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#fde9f2"/>
-          <path d="M 14 32 L 14 12 L 26 12 L 26 32" stroke="#c2185b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M 17 12 Q 17 7 20 7 Q 23 7 23 12" stroke="#c2185b" stroke-width="2" fill="none"/>
-          <path d="M 18 24 L 22 20 L 24 23 L 20 27 Z" fill="#f48fb1"/>
-          <circle cx="22" cy="20" r="1.6" fill="#c2185b"/>
-          <path d="M 28 14 L 33 9 M 30 14 L 33 11" stroke="#8e244d" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- 5 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <rect x="5" y="8" width="14" height="9" rx="2" fill="#1a5276"/>
+          <circle cx="12" cy="12.5" r="2.6" fill="#9ec9ea"/>
+          <path d="M 7 8 L 7 6 L 10 6" stroke="#1a5276" stroke-width="1.6" fill="none"/>
         </svg>
-        <div class="card-kicker">HEALTH · UK</div>
       </div>
-      <div class="card-headline">UK's First AI Breast Cancer Screening Trial</div>
-      <div class="card-sub">
-        Trial begins in <b>Cambridgeshire</b> — testing whether AI can detect
-        breast cancer earlier and cut radiologists' workload. Britain's
-        <b>first</b> such trial.
-      </div>
-      <div class="card-source">SOURCE: UNIVERSITY OF CAMBRIDGE</div>
+      <div class="card-head">Stripe weighs a buyback above $200bn</div>
+      <div class="card-body">Share-offer talks would take its valuation past <b>$200 billion</b>; its Link wallet is a default in AI-agent tools.</div>
+      <div class="card-num">Payments · AI agents</div>
     </div>
 
-    <!-- Story 7: AFCON -->
-    <div class="card">
-      <div class="card-head">
-        <svg class="card-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="36" rx="8" fill="#e6f4ea"/>
-          <circle cx="20" cy="21" r="9" fill="#1e9e4a" stroke="#0d6b30" stroke-width="1.5"/>
-          <path d="M 20 12 L 22.6 18.5 L 29.5 19 L 24.2 23.3 L 26 30 L 20 26.4 L 14 30 L 15.8 23.3 L 10.5 19 L 17.4 18.5 Z" fill="#fff" opacity="0.9"/>
-          <path d="M 12 8 Q 20 4 28 8" stroke="#1e9e4a" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <circle cx="12" cy="8" r="1.6" fill="#f2c94c"/>
-          <circle cx="28" cy="8" r="1.6" fill="#f2c94c"/>
+    <!-- 6 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <path d="M 5 17 L 9 12 L 12 15 L 17 8" stroke="#1a5276" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="17" cy="8" r="2" fill="#f0c84a"/>
         </svg>
-        <div class="card-kicker">SPORT · FOOTBALL</div>
       </div>
-      <div class="card-headline">Senegal Reinstated as 2025 AFCON Champions</div>
-      <div class="card-sub">
-        Court of Arbitration for Sport upholds Senegal's appeal and reinstates
-        them as <b>2025 Africa Cup of Nations</b> winners, after the title
-        had been stripped.
+      <div class="card-head">US consumer confidence jumps to 103.3</div>
+      <div class="card-body">Conference Board index up <b>11.4 points</b>, well above the 92.5 consensus — best since January 2025.</div>
+      <div class="card-num">November reading</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card" style="border-top-color:#a06a12">
+      <div class="card-top">
+        <span class="ctag" style="background:#a06a12">South Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#f7f0e2"/>
+          <circle cx="12" cy="12" r="8" fill="none" stroke="#a06a12" stroke-width="1.8"/>
+          <path d="M 12 4 A 8 8 0 0 1 20 12 L 12 12 Z" fill="#d9a441"/>
+        </svg>
       </div>
-      <div class="card-source">SOURCE: CAS / REUTERS</div>
+      <div class="card-head">Tata Steel bids for APL Apollo Tubes</div>
+      <div class="card-body">Proposes <b>₹32,266 crore</b> for a <b>52.38%</b> stake; needs regulatory and shareholder approval.</div>
+      <div class="card-num">India · steel tubes</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card" style="border-top-color:#a06a12">
+      <div class="card-top">
+        <span class="ctag" style="background:#a06a12">South Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#f7f0e2"/>
+          <path d="M 6 15 A 6 6 0 0 1 18 15" fill="none" stroke="#a06a12" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="16" r="1.8" fill="#a06a12"/>
+          <path d="M 5 8 L 8 11 M 19 8 L 16 11" stroke="#d9a441" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-head">Jio drops the daily data cap on select plans</div>
+      <div class="card-body">The <b>2.5 GB/day</b> limit ends on the ₹399 and ₹3,999 plans from <b>24 November</b>; adds ₹15 and ₹25 top-ups.</div>
+      <div class="card-num">Reliance · 1.4bn subscribers</div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <rect x="6" y="8" width="9" height="13" rx="1.5" fill="#b03a2e"/>
+          <rect x="9" y="5" width="9" height="13" rx="1.5" fill="#d9776b" opacity="0.85"/>
+          <path d="M 11 8 L 13 8" stroke="#fff" stroke-width="1.4"/>
+        </svg>
+      </div>
+      <div class="card-head">China's planned ESS battery capacity nears 2,000 GWh</div>
+      <div class="card-body">Fast expansion into overseas markets raises fresh <b>global oversupply</b> concerns for energy-storage cells.</div>
+      <div class="card-num">Industry · 2026 plan</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <rect x="7" y="7" width="10" height="10" rx="1.5" fill="none" stroke="#b03a2e" stroke-width="1.8"/>
+          <path d="M 10 4 L 10 7 M 14 4 L 14 7 M 10 17 L 10 20 M 14 17 L 14 20 M 4 10 L 7 10 M 4 14 L 7 14 M 17 10 L 20 10 M 17 14 L 20 14" stroke="#b03a2e" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-head">China issues its first chip-equipment quality standard</div>
+      <div class="card-body"><b>SJ/T 12425–2026</b>, unveiled 24 Nov in Yizhuang, gives fabs and suppliers one qualification framework.</div>
+      <div class="card-num">In force 1 May 2027</div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <rect x="5" y="7" width="9" height="10" rx="1.2" fill="#b03a2e"/>
+          <rect x="10" y="7" width="9" height="10" rx="1.2" fill="#d9776b" opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="card-head">Huawei holds the Mate X8 price as foldables slip</div>
+      <div class="card-body">Starting price kept at <b>¥12,999</b> (≈$1,950) with the Kirin 9050 Pro; shipments fell by a third.</div>
+      <div class="card-num">Launched 24 Nov · HarmonyOS 7</div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <path d="M 5 15 L 5 11 L 9 11 L 9 15 L 12 15 L 12 7 L 16 7 L 16 15 L 19 15 L 19 13" fill="none" stroke="#b03a2e" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="8" cy="17.5" r="1.6" fill="#b03a2e"/>
+          <circle cx="14" cy="17.5" r="1.6" fill="#b03a2e"/>
+        </svg>
+      </div>
+      <div class="card-head">Xiaomi posts Q3 EV revenue of 22.7bn yuan</div>
+      <div class="card-body">Quarterly deliveries passed <b>100,975</b>; October alone topped 50,000 for the year.</div>
+      <div class="card-num">EV + range-extender</div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <path d="M 4 14 L 7 14 L 9 9 L 12 17 L 15 11 L 17 14 L 20 14" fill="none" stroke="#b03a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-head">BYD's third-generation Tang EV launches</div>
+      <div class="card-body">Flagship electric SUV from <b>¥187,900</b>, consolidating the brand's 200,000-yuan segment.</div>
+      <div class="card-num">Dynasty network</div>
+    </div>
+
+    <!-- 14 -->
+    <div class="card" style="border-top-color:#1f6f8b">
+      <div class="card-top">
+        <span class="ctag" style="background:#1f6f8b">Europe</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e4f0f6"/>
+          <circle cx="12" cy="12" r="7" fill="none" stroke="#1f6f8b" stroke-width="1.7"/>
+          <path d="M 12 5 L 12 19 M 5 12 L 19 12" stroke="#1f6f8b" stroke-width="1.2" opacity="0.6"/>
+          <path d="M 7 8 Q 12 4 17 8" fill="none" stroke="#1f6f8b" stroke-width="1.2" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-head">Xpeng opens urban self-driving rides in Europe</div>
+      <div class="card-body">First Chinese maker to run public test rides in Europe, with its Turing AI stack in a <b>Paris</b> store.</div>
+      <div class="card-num">Urban NGP pilot</div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">East Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#fbeae8"/>
+          <path d="M 6 15 Q 12 5 18 15" fill="none" stroke="#b03a2e" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="M 8 18 Q 12 11 16 18" fill="none" stroke="#d9776b" stroke-width="1.7" stroke-linecap="round"/>
+          <circle cx="12" cy="20" r="1.7" fill="#b03a2e"/>
+        </svg>
+      </div>
+      <div class="card-head">China starts a 6G pilot in eight provinces</div>
+      <div class="card-body">MIIT approved Beijing, Hebei, Shanghai, Jiangsu, Zhejiang, Anhui, Hubei and <b>Guangdong</b> to run trials.</div>
+      <div class="card-num">Launched 24 Nov · Shanghai</div>
+    </div>
+
+    <!-- 16 -->
+    <div class="card" style="border-top-color:#4a5a78">
+      <div class="card-top">
+        <span class="ctag" style="background:#4a5a78">Global</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#eceef4"/>
+          <circle cx="12" cy="12" r="8" fill="none" stroke="#4a5a78" stroke-width="1.6"/>
+          <path d="M 4 12 L 20 12 M 12 4 Q 7 12 12 20 M 12 4 Q 17 12 12 20" fill="none" stroke="#4a5a78" stroke-width="1.1"/>
+        </svg>
+      </div>
+      <div class="card-head">Global generative-AI governance standard approved</div>
+      <div class="card-body">Joint <i>Guide to Responding to Risks of Generative AI Systems</i> covers deepfakes and model poisoning.</div>
+      <div class="card-num">Proposal · multi-country</div>
+    </div>
+
+    <!-- 17 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <circle cx="11" cy="11" r="5.5" fill="none" stroke="#1a5276" stroke-width="1.9"/>
+          <path d="M 15 15 L 20 20" stroke="#1a5276" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 8.5 11 L 10.5 13 L 14 9" stroke="#f0c84a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-head">Google Tasks opens free to six countries</div>
+      <div class="card-body">US, Japan, South Korea, Canada, Australia and India get the agent free on <b>Gemini 4 Hydrogen</b>.</div>
+      <div class="card-num">Tasks in Gemini</div>
+    </div>
+
+    <!-- 18 -->
+    <div class="card" style="border-top-color:#b03a2e">
+      <div class="card-top">
+        <span class="ctag" style="background:#b03a2e">North America</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e6f2fa"/>
+          <path d="M 6 8 L 6 5 L 18 5 L 18 8" fill="none" stroke="#1a5276" stroke-width="1.7" stroke-linejoin="round"/>
+          <rect x="6" y="8" width="12" height="11" rx="2" fill="#1a5276"/>
+          <circle cx="10" cy="13" r="1.2" fill="#f0c84a"/>
+          <circle cx="14" cy="13" r="1.2" fill="#f0c84a"/>
+          <circle cx="12" cy="16" r="1.2" fill="#f0c84a"/>
+        </svg>
+      </div>
+      <div class="card-head">OpenAI tests Dots with ChatGPT Plus users</div>
+      <div class="card-body">The agent surface gets its own tab on mobile and opens to <b>$20/mo</b> Plus testers and all Business Standard.</div>
+      <div class="card-num">Dots · mobile app</div>
+    </div>
+
+    <!-- 19 -->
+    <div class="card" style="border-top-color:#4a5a78">
+      <div class="card-top">
+        <span class="ctag" style="background:#4a5a78">Global</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#eceef4"/>
+          <path d=" M 12 4 L 12 20 M 5 8 L 19 8 M 5 16 L 19 16" stroke="#4a5a78" stroke-width="1.5"/>
+          <path d="M 4 10 Q 12 3 20 10" fill="none" stroke="#4a5a78" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <div class="card-head">COP31 closes without an overarching deal</div>
+      <div class="card-body">Antalya's summit of <b>197</b> parties delivered work programmes but split over fossil fuels and transition pace.</div>
+      <div class="card-num">Peatlands: 4–5% by 2050</div>
+    </div>
+
+    <!-- 20 -->
+    <div class="card" style="border-top-color:#2e7d32">
+      <div class="card-top">
+        <span class="ctag" style="background:#2e7d32">SE Asia</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#e8f3e9"/>
+          <path d="M 5 19 Q 5 11 12 11 Q 19 11 19 19" fill="none" stroke="#2e7d32" stroke-width="1.9"/>
+          <path d="M 9 11 L 9 6 L 15 6 L 15 11" fill="none" stroke="#2e7d32" stroke-width="1.7"/>
+          <circle cx="12" cy="5" r="2" fill="#2e7d32"/>
+        </svg>
+      </div>
+      <div class="card-head">Acerpure targets India and Indonesia</div>
+      <div class="card-body">The appliance maker plans washing-machine sales in India and a <b>subsidiary</b> in Indonesia.</div>
+      <div class="card-num">Growth target · 2027</div>
     </div>
 
   </div>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- ================= WIRE STRIP : 12 MORE ================= -->
+  <div class="wire">
+
+    <div class="witem" style="border-left-color:#a06a12">
+      <span class="wdot" style="background:#a06a12"></span>
+      <div class="wtext">
+        <div class="whead">Egypt and the US sign a $625m framework</div>
+        <div class="wbody">Five-year pact on water, energy, infrastructure, education and healthcare. <b>Cairo, 25 Nov.</b></div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#a06a12">
+      <span class="wdot" style="background:#a06a12"></span>
+      <div class="wtext">
+        <div class="whead">UAE and Argentina launch CEPA talks</div>
+        <div class="wbody">Fast-track negotiations across energy, AI, mining and pharma; a <b>$51bn</b> LNG project rides along.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#2e7d32">
+      <span class="wdot" style="background:#2e7d32"></span>
+      <div class="wtext">
+        <div class="whead">Indonesia proposes hosting the ASEAN oil reserve</div>
+        <div class="wbody">Energy Minister Lahadalia says member states are negotiating a joint reserve; <b>one or two</b> more rounds.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#2e7d32">
+      <span class="wdot" style="background:#2e7d32"></span>
+      <div class="wtext">
+        <div class="whead">Indonesia and China sign $15bn of MoUs</div>
+        <div class="wbody"><b>35</b> agreements at the Indonesia-China Business Forum in Shenzhen, witnessed by President Prabowo.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#2e7d32">
+      <span class="wdot" style="background:#2e7d32"></span>
+      <div class="wtext">
+        <div class="whead">Vietnam breaks ground on $1bn Lach Huyen port</div>
+        <div class="wbody">Expansion and associated projects in Hai Phong, ahead of Vietnam hosting the <b>CLMV Summit</b>.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#2e7d32">
+      <span class="wdot" style="background:#2e7d32"></span>
+      <div class="wtext">
+        <div class="whead">Vietnam and Indonesia eye $18bn of trade</div>
+        <div class="wbody">Two-way turnover is targeted to pass <b>$18bn</b> before 2028, ministers agreed in Hanoi on 20–22 Nov.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#7a4a9c">
+      <span class="wdot" style="background:#7a4a9c"></span>
+      <div class="wtext">
+        <div class="whead">Nigeria's Flamingos rewarded ₦100m each</div>
+        <div class="wbody">First African U-17 Women's World Cup champions; coach paid <b>₦100m</b> in cash after six straight wins.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#7a4a9c">
+      <span class="wdot" style="background:#7a4a9c"></span>
+      <div class="wtext">
+        <div class="whead">Senegal reinstated as AFCON champions</div>
+        <div class="wbody">CAS unanimously upheld the appeal and overturned the CAF ruling that had handed the trophy to Morocco.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#7a4a9c">
+      <span class="wdot" style="background:#7a4a9c"></span>
+      <div class="wtext">
+        <div class="whead">Africa's population reaches 1.56 billion</div>
+        <div class="wbody"><b>19%</b> of the world's 8.241bn people, heading for 25.9% by 2050; Nigeria leads with <b>250.2m</b>.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#7a4a9c">
+      <span class="wdot" style="background:#7a4a9c"></span>
+      <div class="wtext">
+        <div class="whead">FIFA puts $25m behind every African member</div>
+        <div class="wbody">Funding for the 2027–2030 cycle as Africa fielded <b>10</b> World Cup teams and reached nine knockouts.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#1a5276">
+      <span class="wdot" style="background:#1a5276"></span>
+      <div class="wtext">
+        <div class="whead">Laos leaves the least-developed group</div>
+        <div class="wbody">Formally out on <b>24 Nov</b> under a UN resolution, targeting upper-middle income by 2035.</div>
+      </div>
+    </div>
+
+    <div class="witem" style="border-left-color:#8a6d1f">
+      <span class="wdot" style="background:#8a6d1f"></span>
+      <div class="wtext">
+        <div class="whead">South Africa tops the Wanderlust travel awards</div>
+        <div class="wbody">Named best nature and wildlife destination at the <b>2026</b> awards, ahead of Canada and Australia.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
   <div class="footer">
-    <span><b>WORLD NEWS DIGEST</b> · AI-GENERATED BRIEFING</span>
-    <span>25 NOVEMBER 2026 · 7 STORIES · NEUTRAL TOPICS ONLY</span>
+    <span><b>WORLD NEWS DIGEST</b> · WEDNESDAY 25 NOVEMBER 2026 · 36 STORIES · 10 REGIONS</span>
+    <span>AI-GENERATED BRIEFING · SOURCES: XINHUA · NASA · ESA · REUTERS · IMF · CAS · AFP · DIGITIMES</span>
   </div>
 
 </div>
