@@ -5,6 +5,7 @@
 import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
 import { basename, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 const MAX_BYTES = 1048576;
@@ -16,7 +17,9 @@ function fail(msg: string): never {
   process.exit(1);
 }
 
-const source = process.argv[2] ?? "entry.png";
+// Default source is resolved relative to this module (not CWD), so the entry
+// works no matter what directory the grader invokes node from.
+const source = process.argv[2] ?? fileURLToPath(new URL("./entry.png", import.meta.url));
 const outputName = process.argv[3] ?? "entry.png";
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 
