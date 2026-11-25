@@ -12,7 +12,7 @@
  */
 
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { createHash } from "node:crypto";
 
 /** The gate: a whole PNG (or JPEG) of at most 1 MiB and 1024x1024 pixels. */
@@ -31,7 +31,8 @@ function pngDimensions(buffer: Buffer): { width: number; height: number } | null
 
 const SOURCE_FILE = resolve(import.meta.dirname ?? ".", "entry.png");
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-const OUTPUT_FILE = join(OUTPUT_DIR, "entry.png");
+const OUTPUT_NAME = process.env.MAKEFUN_OUTPUT_NAME ?? "entry.png";
+const OUTPUT_FILE = join(OUTPUT_DIR, OUTPUT_NAME);
 
 function fail(message: string): never {
   console.error(`ERROR: ${message}`);
@@ -59,6 +60,12 @@ if (!existsSync(OUTPUT_DIR)) {
   if (!dirStat.isDirectory()) {
     fail(`output path exists but is not a directory: ${OUTPUT_DIR}`);
   }
+}
+
+// Refuse to clobber a path that is not a plain file name: the output name
+// must stay inside the output directory.
+if (OUTPUT_NAME !== basename(OUTPUT_NAME) || OUTPUT_NAME === "." || OUTPUT_NAME === "..") {
+  fail(`MAKEFUN_OUTPUT_NAME must be a plain file name, got: ${OUTPUT_NAME}`);
 }
 
 copyFileSync(SOURCE_FILE, OUTPUT_FILE);

@@ -1,7 +1,10 @@
 out/
+out2/
+out3/
 .chrome-profile/
 crop_*.png
 chk_*.png
+fresh/
 page_v3_backup.html
 news-image-20261125-kit/
 prompt.txt
