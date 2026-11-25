@@ -23,3 +23,6 @@ map_panels.py
 pixel_check.py
 probe_caption.py
 segment.py
+TASK.md
+prompt.txt
+system-prompt.txt
