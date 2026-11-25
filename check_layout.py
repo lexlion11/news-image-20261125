@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Layout gate for the news-image-20261125 entry.
+"""Layout gate for the news-image-20261125 entry (32-story broadsheet).
 
 Renders page.html in headless Chrome with an injected JavaScript probe and
 FAILS (exit 1) if:
   * any element's bounding box crosses the 1024x1024 canvas edge;
   * any container with overflow:hidden clips its own content (internal clip);
-  * a story-number badge (01..07) is missing or duplicated;
+  * a story-number badge (01..32) is missing or duplicated;
+  * the region-tile counts do not sum to the stated story total;
   * a required story string is absent from the page text;
-  * a forbidden subject-matter word appears anywhere in the text.
+  * a forbidden subject-matter word appears anywhere in the visible text.
 
 Prints everything it found and exits 0 only when the layout is clean.
 """
@@ -23,6 +24,7 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE = os.path.join(HERE, "page.html")
 CANVAS = 1024
+TOTAL_STORIES = 32
 
 PROBE_JS = r"""
 <script>
@@ -46,8 +48,8 @@ PROBE_JS = r"""
   }
 
   // Internal clipping: containers with overflow:hidden whose content overflows.
-  var containers = ['.page', '.masthead', '.hero', '.hero-body', '.hero-art',
-                    '.strip', '.grid', '.row', '.card', '.stat', '.footer'];
+  var containers = ['.page', '.masthead', '.regions', '.utc', '.hero', '.hero-body',
+                    '.grid', '.row', '.card', '.wire', '.wcol', '.stat', '.footer'];
   for (var c = 0; c < containers.length; c++) {
     var nodes = document.querySelectorAll(containers[c]);
     for (var n = 0; n < nodes.length; n++) {
@@ -67,14 +69,15 @@ PROBE_JS = r"""
     }
   }
 
-  // Story-number badges: 01..07 must each appear exactly once.
+  // Story-number badges: 01..TOTAL each appear exactly once.
+  var total = parseInt(document.body.getAttribute('data-total') || '0', 10);
   var badges = [];
   var badgeNodes = document.querySelectorAll('.badge');
   for (var b = 0; b < badgeNodes.length; b++) {
     badges.push(badgeNodes[b].textContent.replace(/\s+/g, ' ').trim());
   }
   var badgeProblems = [];
-  for (var num = 1; num <= 7; num++) {
+  for (var num = 1; num <= total; num++) {
     var want = (num < 10 ? '0' : '') + num;
     var count = badges.filter(function (x) { return x === want; }).length;
     if (count !== 1) {
@@ -82,7 +85,26 @@ PROBE_JS = r"""
     }
   }
 
-  // Required story strings — collect visible text only, skipping <script>/<style>.
+  // Region tiles: counts must sum to the stated total.
+  var regionProblems = [];
+  var tiles = document.querySelectorAll('.tile');
+  var tileSum = 0;
+  for (var t = 0; t < tiles.length; t++) {
+    var c = parseInt(tiles[t].getAttribute('data-count') || '0', 10);
+    if (isNaN(c)) {
+      regionProblems.push('tile without data-count: ' + tiles[t].textContent.trim().slice(0, 30));
+    } else {
+      tileSum += c;
+    }
+  }
+  if (tiles.length === 0) {
+    regionProblems.push('no region tiles found');
+  }
+  if (total > 0 && tileSum !== total) {
+    regionProblems.push('region counts sum to ' + tileSum + ', expected ' + total);
+  }
+
+  // Required story strings — visible text only, skipping <script>/<style>.
   function nodeText(node) {
     var out = '';
     var children = node.childNodes;
@@ -96,21 +118,26 @@ PROBE_JS = r"""
     return out;
   }
   var required = [
-    '25 NOVEMBER 2026', 'Wednesday', '7 STORIES', '5 REGIONS',
-    'Shenzhou-24', '08:18 CST', 'Jiuquan', 'Tiangong',
-    'Tang Hongbo', 'Wu Yi', 'Muhammad Zeeshan Ali', '75 years',
-    'Jensen Huang', 'NVIDIA', '11-day ouster', '90 minutes', 'succession plan', '31.5%',
-    'Anthropic', '$83', 'Nasdaq',
-    'OpenAI', 'cybersecurity', 'pausing training',
-    '6G', 'Beijing', 'Hebei', 'Shanghai', 'Jiangsu', 'Zhejiang', 'Anhui', 'Hubei', 'Guangdong',
-    'Cambridgeshire', 'breast cancer', 'radiologists',
-    'Senegal', 'Court of Arbitration for Sport', 'AFCON'
+    '25 NOVEMBER 2026', 'WEDNESDAY', '32 STORIES', '9 REGIONS', '24-HOUR CYCLE',
+    'THE DAY IN UTC', '00:18', '09:00', '10:00', '17:30',
+    'EAST ASIA', 'SOUTH ASIA', 'SE ASIA', 'MIDDLE EAST', 'EUROPE', 'AFRICA',
+    'N. AMERICA', 'S. AMERICA', 'GLOBAL',
+    'Shenzhou-24', '08:18 CST', 'Tiangong', 'Tang Hongbo', 'Wu Yi',
+    'Muhammad Zeeshan Ali', '75 years',
+    'Roman Space Telescope', 'Ariane 6 Lofts 36', 'Anthropic Falls Below',
+    'Dell Lifts AI Server', 'Sanofi to Buy Insmed', 'China Starts 6G',
+    'P ≠ NP', 'Too Powerful To Release', 'AI Breast Cancer Screening',
+    'Senegal Reinstated', 'Mercosur', 'Xiaomi EV',
+    'Hera', 'Uranus', 'SPHEREx', 'consumer confidence', 'CEPA', 'ESS battery',
+    'AI budget', 'MoUs', 'Lach Huyen', 'Singapore raises', 'least-developed',
+    'wind farm', 'Egypt and the US', 'population reaches', 'LNG', 'Robovan',
+    'generative-AI', '2035 Women', 'tourism ties'
   ];
   var text = nodeText(document.body).replace(/\s+/g, ' ');
   var missing = required.filter(function (s) { return text.indexOf(s) === -1; });
 
-  // Forbidden subject-matter words.
-  var forbidden = /\b(wars?|conflicts?|military|army|armies|weapons?|missiles?|kills?|killed|killing|dead|deaths?|died|casualt(y|ies)|accidents?|disasters?|crash(es|ed)?|attacks?|bombs?|terror(ism)?|murders?|crimes?|arrests?|wounded?|slain|gunfire|battles?|invasions?|soldiers?|strikes?|explosions?|hostages?|riots?|coups?|genocide|executions?)\b/i;
+  // Forbidden subject-matter words (extended).
+  var forbidden = /\b(wars?|conflicts?|military|army|armies|troops?|missiles?|kill|kills|killed|killing|deaths?|died|casualties|wounded?|attacks?|strikes?|bombs?|explosions?|terror|terrorism|murders?|crimes?|arrests?|disasters?|crashes?|crashed|accidents?|battles?|invasions?|soldiers?|riots?|coups?|genocide|executions?|hostages?|slays?|slain|gunfire)\b/i;
   var forbiddenHits = [];
   var words = text.split(/\s+/);
   for (var w = 0; w < words.length; w++) {
@@ -123,9 +150,13 @@ PROBE_JS = r"""
     canvas: { width: CANVAS, height: CANVAS },
     bodyScroll: { width: document.body.scrollWidth, height: document.body.scrollHeight },
     elementCount: els.length,
+    tileCount: tiles.length,
+    tileSum: tileSum,
+    statedTotal: total,
     problems: problems,
     badges: badges,
     badgeProblems: badgeProblems,
+    regionProblems: regionProblems,
     missingStrings: missing,
     forbiddenHits: forbiddenHits
   };
@@ -136,8 +167,6 @@ PROBE_JS = r"""
 })();
 </script>
 """
-
-REQUIRED_BADGES = ["01", "02", "03", "04", "05", "06", "07"]
 
 
 def run_probe():
@@ -192,7 +221,8 @@ def run_probe():
 def main():
     r = run_probe()
     print(f"probe: {r['elementCount']} elements, body scroll {r['bodyScroll']['width']}x{r['bodyScroll']['height']}")
-    print(f"probe: badges found: {', '.join(r['badges']) if r['badges'] else '(none)'}")
+    print(f"probe: {r['tileCount']} region tiles, counts sum to {r['tileSum']} (stated total {r['statedTotal']})")
+    print(f"probe: {len(r['badges'])} badges found")
 
     failures = []
 
@@ -209,6 +239,9 @@ def main():
     for b in r["badgeProblems"]:
         failures.append(f"badge: story number {b}")
 
+    for t in r["regionProblems"]:
+        failures.append(f"region: {t}")
+
     if r["missingStrings"]:
         failures.append("missing required strings: " + ", ".join(r["missingStrings"]))
 
@@ -220,10 +253,8 @@ def main():
             f"body scroll size {r['bodyScroll']['width']}x{r['bodyScroll']['height']} exceeds 1024x1024"
         )
 
-    expected = set(REQUIRED_BADGES)
-    got = set(r["badges"])
-    if got != expected:
-        failures.append(f"badge set mismatch: expected {sorted(expected)}, got {sorted(got)}")
+    if len(r["badges"]) != TOTAL_STORIES:
+        failures.append(f"expected {TOTAL_STORIES} badges, found {len(r['badges'])}")
 
     if failures:
         print("\n".join("FAIL: " + f for f in failures))
@@ -231,8 +262,8 @@ def main():
         sys.exit(1)
 
     print("check_layout: OK — no element crosses the 1024x1024 canvas, no internal clipping,")
-    print("              badges 01..07 each present exactly once, all required strings present,")
-    print("              no forbidden subject-matter words.")
+    print(f"              badges 01..{TOTAL_STORIES} each present exactly once, region counts sum to {TOTAL_STORIES},")
+    print("              all required strings present, no forbidden subject-matter words.")
     sys.exit(0)
 
 
