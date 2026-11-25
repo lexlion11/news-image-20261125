@@ -1,112 +1,89 @@
-/**
- * news-image-20261125 — entrypoint
- *
- * Copies entry.png to $MAKEFUN_OUTPUT_DIR/entry.png (default /output),
- * creating the output directory if needed.
- *
- * The entry is a 1024x1024 PNG digest of the world news of 25 November 2026,
- * rendered ahead of time from page.html. The harness runs this twice and both
- * runs must write identical bytes, so the copy is byte-verified.
- *
- * Node 22 stdlib only. Run with: node main.ts
- */
-
-import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+#!/usr/bin/env node
+// news-image-20261125 entrypoint: copies the rendered entry.png into the
+// competition output directory and verifies the bytes that were actually written.
+// Node standard library only — no dependencies.
 import { createHash } from "node:crypto";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
+import { basename, join } from "node:path";
 
-/** The gate: a whole PNG (or JPEG) of at most 1 MiB and 1024x1024 pixels. */
-const MAX_BYTES = 1048576;
-const EXPECTED_WIDTH = 1024;
-const EXPECTED_HEIGHT = 1024;
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+const MAX_BYTES = 1048576;
+const REQUIRED_WIDTH = 1024;
+const REQUIRED_HEIGHT = 1024;
 
-/** Read the width and height out of a PNG IHDR chunk. */
-function pngDimensions(buffer: Buffer): { width: number; height: number } | null {
-  // 8-byte signature, then an IHDR chunk: 4-byte length, "IHDR", then width/height.
-  if (buffer.length < 24) return null;
-  if (buffer.subarray(12, 16).toString("latin1") !== "IHDR") return null;
-  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
-}
-
-const SOURCE_FILE = resolve(import.meta.dirname ?? ".", "entry.png");
-const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-const OUTPUT_NAME = process.env.MAKEFUN_OUTPUT_NAME ?? "entry.png";
-const OUTPUT_FILE = join(OUTPUT_DIR, OUTPUT_NAME);
-
-function fail(message: string): never {
-  console.error(`ERROR: ${message}`);
+function fail(msg: string): never {
+  console.error(`entry: ${msg}`);
   process.exit(1);
 }
 
-// Source must exist and be a real file.
-if (!existsSync(SOURCE_FILE)) {
-  fail(`source image not found: ${SOURCE_FILE}`);
+const source = process.argv[2] ?? "entry.png";
+const outputName = process.argv[3] ?? "entry.png";
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+
+// The output name must be a plain file name — no path traversal, no separators.
+if (
+  outputName !== basename(outputName) ||
+  outputName.includes("/") ||
+  outputName.includes("\\") ||
+  outputName === "." ||
+  outputName === ".."
+) {
+  fail(`output name must be a plain file name, got "${outputName}"`);
 }
 
-const sourceStat = statSync(SOURCE_FILE);
-if (!sourceStat.isFile()) {
-  fail(`source path is not a regular file: ${SOURCE_FILE}`);
+// Source must exist, be a regular file, and be non-empty.
+if (!existsSync(source)) {
+  fail(`source image not found: ${source}`);
 }
-if (sourceStat.size === 0) {
-  fail(`source image is empty (0 bytes): ${SOURCE_FILE}`);
+const srcStat = statSync(source);
+if (!srcStat.isFile()) {
+  fail(`source is not a regular file: ${source}`);
+}
+if (srcStat.size === 0) {
+  fail(`source image is empty: ${source}`);
 }
 
-// Create output dir (recursive) if missing.
-if (!existsSync(OUTPUT_DIR)) {
-  mkdirSync(OUTPUT_DIR, { recursive: true });
-} else {
-  const dirStat = statSync(OUTPUT_DIR);
-  if (!dirStat.isDirectory()) {
-    fail(`output path exists but is not a directory: ${OUTPUT_DIR}`);
+// Validate the source bytes against the competition gate before copying.
+const srcBuf = readFileSync(source);
+checkPng(srcBuf, "source");
+
+function checkPng(buf: Buffer, what: string): void {
+  if (buf.subarray(0, 8).compare(PNG_MAGIC) !== 0) {
+    fail(`${what} is not a valid PNG (magic bytes mismatch)`);
+  }
+  if (buf.length > MAX_BYTES) {
+    fail(`${what} is ${buf.length} bytes, exceeds the ${MAX_BYTES} byte limit`);
+  }
+  // PNG layout: 8-byte signature, then IHDR chunk: 4-byte length, 4-byte type,
+  // then 4-byte width and 4-byte height (big-endian).
+  if (buf.length < 33 || buf.readUInt32BE(8) !== 13 || buf.subarray(12, 16).toString("ascii") !== "IHDR") {
+    fail(`${what} has a malformed IHDR chunk`);
+  }
+  const width = buf.readUInt32BE(16);
+  const height = buf.readUInt32BE(20);
+  if (width !== REQUIRED_WIDTH || height !== REQUIRED_HEIGHT) {
+    fail(`${what} is ${width}x${height}, must be exactly ${REQUIRED_WIDTH}x${REQUIRED_HEIGHT}`);
   }
 }
 
-// Refuse to clobber a path that is not a plain file name: the output name
-// must stay inside the output directory.
-if (OUTPUT_NAME !== basename(OUTPUT_NAME) || OUTPUT_NAME === "." || OUTPUT_NAME === "..") {
-  fail(`MAKEFUN_OUTPUT_NAME must be a plain file name, got: ${OUTPUT_NAME}`);
-}
+mkdirSync(outputDir, { recursive: true });
+const dest = join(outputDir, outputName);
+copyFileSync(source, dest);
 
-copyFileSync(SOURCE_FILE, OUTPUT_FILE);
+// Verify the copy: same size, matching SHA-256, and gate-valid bytes on disk.
+const destBuf = readFileSync(dest);
+if (destBuf.length !== srcBuf.length) {
+  fail(`size mismatch after copy: source ${srcBuf.length} bytes, destination ${destBuf.length} bytes`);
+}
+const srcHash = createHash("sha256").update(srcBuf).digest("hex");
+const destHash = createHash("sha256").update(destBuf).digest("hex");
+if (srcHash !== destHash) {
+  fail(`SHA-256 mismatch: source ${srcHash} != destination ${destHash}`);
+}
+checkPng(destBuf, "destination");
 
-// Post-copy verification: destination must be a file of the same size,
-// and its SHA-256 must match the source (guards against partial copies).
-const outStat = statSync(OUTPUT_FILE);
-if (!outStat.isFile()) {
-  fail(`output is not a regular file: ${OUTPUT_FILE}`);
-}
-if (outStat.size !== sourceStat.size) {
-  fail(`size mismatch after copy: source=${sourceStat.size} dest=${outStat.size}`);
-}
-
-const fileHash = (p: string): string => {
-  const h = createHash("sha256");
-  h.update(readFileSync(p));
-  return h.digest("hex");
-};
-
-if (fileHash(SOURCE_FILE) !== fileHash(OUTPUT_FILE)) {
-  fail(`SHA-256 mismatch between source and ${OUTPUT_FILE}`);
-}
-
-// Gate preconditions, checked on the bytes that were actually written.
-const written = readFileSync(OUTPUT_FILE);
-if (written.length > MAX_BYTES) {
-  fail(`entry image is ${written.length} bytes, over the ${MAX_BYTES}-byte limit`);
-}
-if (!written.subarray(0, 8).equals(PNG_MAGIC)) {
-  fail("entry image is not a PNG");
-}
-const dims = pngDimensions(written);
-if (!dims) {
-  fail("entry image has no readable PNG IHDR header");
-}
-if (dims.width !== EXPECTED_WIDTH || dims.height !== EXPECTED_HEIGHT) {
-  fail(`entry image is ${dims.width}x${dims.height}, expected ${EXPECTED_WIDTH}x${EXPECTED_HEIGHT}`);
-}
-
+const finalWidth = destBuf.readUInt32BE(16);
+const finalHeight = destBuf.readUInt32BE(20);
 console.log(
-  `OK: copied ${SOURCE_FILE} -> ${OUTPUT_FILE} (${outStat.size} bytes, ` +
-    `${dims.width}x${dims.height}, sha256 verified)`,
+  `entry: copied ${source} -> ${dest} (${destBuf.length} bytes, ${finalWidth}x${finalHeight} px, sha256 ${destHash}) verified OK`
 );

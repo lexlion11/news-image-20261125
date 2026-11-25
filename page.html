@@ -1,408 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>World News Digest - Wednesday 25 November 2026</title>
+<meta charset="utf-8">
+<title>World News Digest — Wednesday 25 November 2026</title>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { width:1024px; height:1024px; overflow:hidden; }
-  body {
-    font-family:"DejaVu Sans","Liberation Sans",Arial,Helvetica,sans-serif;
-    background:#f4f1e9; color:#1b1b1b; -webkit-font-smoothing:antialiased;
-  }
-  .page { width:1024px; height:1024px; padding:0 0 6px; display:flex; flex-direction:column; overflow:hidden; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1024px;height:1024px;overflow:hidden;}
+  body{font-family:"DejaVu Sans","Liberation Sans",Arial,Helvetica,sans-serif;background:#ffffff;color:#1a1a1a;}
+  .page{width:1024px;height:1024px;display:flex;flex-direction:column;overflow:hidden;}
 
-  /* ---------------- masthead ---------------- */
-  .mast { background:#0d1b3a; color:#f4f1e9; padding:8px 26px 9px; position:relative; }
-  .mast .kick {
-    font-size:10.5px; letter-spacing:3.4px; font-weight:700; color:#c8a44d;
-    text-transform:uppercase;
-  }
-  .mast .row { display:flex; align-items:flex-end; justify-content:space-between; }
-  .mast .date {
-    font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;
-    font-size:50px; line-height:1.0; font-weight:700; letter-spacing:-1px;
-    color:#ffffff; margin-top:1px;
-  }
-  .mast .date span { color:#c8a44d; }
-  .mast .right { text-align:right; padding-bottom:4px; }
-  .mast .day {
-    font-size:12.5px; letter-spacing:3.6px; font-weight:700; text-transform:uppercase;
-    color:#f4f1e9;
-  }
-  .mast .meta { font-size:10px; letter-spacing:1.5px; color:#9fb0d0; margin-top:3px; }
-  .mast .rule { height:4px; background:#c8a44d; }
+  /* ---------- Masthead ---------- */
+  .masthead{height:140px;flex:none;background:#0e2440;color:#ffffff;display:flex;flex-direction:column;justify-content:center;padding:10px 30px 12px;}
+  .mh-top{display:flex;justify-content:space-between;align-items:baseline;font-size:10px;letter-spacing:2.5px;color:#9fb8d8;text-transform:uppercase;}
+  .mh-top .ed{color:#ffd166;}
+  .mh-date{font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-weight:700;font-size:56px;line-height:1.05;text-align:center;letter-spacing:1.5px;margin:2px 0 4px;}
+  .mh-bottom{display:flex;justify-content:space-between;align-items:baseline;padding:0 8px;}
+  .mh-day{font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-style:italic;font-size:16px;color:#ffd166;}
+  .mh-meta{font-size:10px;letter-spacing:2.2px;color:#9fb8d8;}
 
-  /* ---------------- hero ---------------- */
-  .hero { display:flex; height:330px; border-bottom:3px solid #141414; }
-  .heropict {
-    width:404px; flex:none; background:#0d1b3a; position:relative;
-    border-right:3px solid #141414;
-  }
-  .heropict svg { display:block; width:404px; height:330px; }
-  .hnumbadge {
-    position:absolute; top:0; left:0; background:#141414; color:#c8a44d;
-    font-size:15px; font-weight:800; letter-spacing:1.4px; padding:3px 11px 5px 11px;
-  }
-  .herotext { flex:1; padding:14px 20px 12px 18px; background:#fffdf7; display:flex; flex-direction:column; }
-  .htagrow { display:flex; align-items:center; gap:9px; margin-bottom:7px; }
-  .tag {
-    color:#ffffff; font-size:10px; font-weight:800; letter-spacing:1.6px;
-    padding:3px 8px 4px 8px; text-transform:uppercase;
-  }
-  .place { font-size:10.5px; letter-spacing:2px; color:#5a5a5a; font-weight:700; }
-  .conf {
-    margin-left:auto; font-size:9px; font-weight:800; letter-spacing:1.1px;
-    padding:2px 6px 3px 6px; border:1px solid #141414; color:#141414;
-  }
-  .hhead {
-    font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;
-    font-size:30px; line-height:1.12; font-weight:700; letter-spacing:-0.4px;
-  }
-  .hsub { font-size:13px; line-height:1.42; color:#2b2b2b; margin-top:8px; }
-  .hstats { display:flex; gap:0; margin-top:auto; border-top:1px solid #d8d2c4; padding-top:9px; }
-  .hstat { flex:1; border-right:1px solid #d8d2c4; padding-right:8px; padding-left:9px; }
-  .hstat:first-child { padding-left:0; }
-  .hstat:last-child { border-right:none; }
-  .hstat b { display:block; font-size:17px; font-weight:800; color:#0d1b3a; letter-spacing:-0.3px; }
-  .hstat span { display:block; font-size:8.6px; letter-spacing:1.1px; color:#6b6b6b; margin-top:2px; text-transform:uppercase; }
-  .hsrc { font-size:10px; color:#6b6b6b; margin-top:8px; letter-spacing:0.3px; }
+  /* ---------- Hero band ---------- */
+  .hero{height:322px;flex:none;display:flex;border-bottom:3px solid #0e2440;background:#ffffff;}
+  .hero-art{width:400px;flex:none;}
+  .hero-art svg{display:block;width:400px;height:322px;}
+  .hero-body{flex:1;min-width:0;padding:14px 22px 12px 24px;display:flex;flex-direction:column;}
+  .kicker{display:flex;justify-content:space-between;align-items:center;}
+  .tag{font-size:9.5px;letter-spacing:2.2px;color:#b3452e;font-weight:700;text-transform:uppercase;}
+  .badge{background:#0e2440;color:#ffffff;font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-size:13px;font-weight:700;padding:2px 9px;border-radius:2px;letter-spacing:1px;}
+  .hero h1{font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-weight:700;font-size:25px;line-height:1.16;color:#0e2440;margin:7px 0 8px;}
+  .hero .dateline{font-size:9px;letter-spacing:1.8px;color:#b3452e;font-weight:700;text-transform:uppercase;margin-bottom:5px;}
+  .hero .sub{font-size:11.5px;line-height:1.45;color:#333333;}
+  .stats{display:flex;gap:10px;margin-top:12px;}
+  .stat{flex:1;min-width:0;border-top:2px solid #0e2440;padding-top:6px;}
+  .stat .num{font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-size:17px;font-weight:700;color:#0e2440;white-space:nowrap;}
+  .stat .lbl{font-size:8.5px;letter-spacing:0.6px;color:#666666;text-transform:uppercase;margin-top:2px;line-height:1.25;}
+  .src{font-size:9px;font-style:italic;color:#777777;margin-top:auto;padding-top:8px;}
 
-  /* ---------------- region index ---------------- */
-  .ridx {
-    display:flex; align-items:stretch; border-bottom:1px solid #d8d2c4;
-    background:#fffdf7; padding:0 18px;
-  }
-  .ridx .rtitle {
-    font-size:9.5px; letter-spacing:2.2px; font-weight:800; color:#8a8a8a;
-    text-transform:uppercase; align-self:center; padding-right:14px; white-space:nowrap;
-  }
-  .rcell { flex:1; display:flex; align-items:baseline; gap:5px; padding:7px 4px 7px 8px; border-left:1px solid #e4dfd2; }
-  .rcell .rname { font-size:9.5px; letter-spacing:1.2px; font-weight:800; color:#333; }
-  .rcell .rnum { font-size:16px; font-weight:800; color:#fff; }
-  .rcell .rnum span { display:none; }
+  /* ---------- Region index strip ---------- */
+  .strip{height:30px;flex:none;display:flex;background:#f4f1ea;border-bottom:2px solid #0e2440;}
+  .cell{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:10px;letter-spacing:1.6px;font-weight:700;color:#0e2440;text-transform:uppercase;border-right:1px solid #d8d2c4;}
+  .cell:last-child{border-right:none;}
+  .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .cell .cnt{color:#b3452e;}
 
-  /* ---------------- card grid ---------------- */
-  .grid { flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; }
-  .card {
-    position:relative; padding:10px 15px 8px; border-right:1px solid #ddd7c9;
-    border-bottom:1px solid #ddd7c9; background:#f9f6ee; display:flex; flex-direction:column;
-    min-height:0; overflow:hidden;
-  }
-  .card:nth-child(3n) { border-right:none; }
-  .card:nth-child(n+4) { border-bottom:none; }
-  .cnum {
-    position:absolute; top:0; right:0; background:#141414; color:#c8a44d;
-    font-size:13px; font-weight:800; letter-spacing:1.2px; padding:2px 9px 4px 9px;
-  }
-  .cart { width:40px; height:40px; margin-bottom:6px; }
-  .cart svg { display:block; width:40px; height:40px; }
-  .ctagrow { display:flex; align-items:center; gap:7px; margin-bottom:4px; }
-  .ctagrow .place { font-size:9.2px; letter-spacing:1.5px; }
-  .chead {
-    font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;
-    font-size:15.5px; line-height:1.16; font-weight:700; letter-spacing:-0.2px;
-  }
-  .csub { font-size:11px; line-height:1.32; color:#2f2f2f; margin-top:5px; }
-  .cfoot {
-    margin-top:auto; padding-top:6px; border-top:1px solid #e0dacb;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .csrc { font-size:9.4px; color:#6b6b6b; letter-spacing:0.4px; }
+  /* ---------- Card grid ---------- */
+  .grid{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;padding:8px 14px;background:#f4f1ea;}
+  .row{flex:1;min-height:0;display:flex;gap:8px;}
+  .card{flex:1;min-width:0;min-height:0;overflow:hidden;background:#ffffff;border:1px solid #d8d2c4;border-top:3px solid #0e2440;padding:10px 12px 9px;display:flex;flex-direction:column;}
+  .c-top{display:flex;align-items:center;gap:7px;}
+  .c-icon{flex:none;display:inline-block;}
+  .c-tag{font-size:8px;letter-spacing:1.6px;font-weight:700;color:#b3452e;text-transform:uppercase;}
+  .c-top .badge{margin-left:auto;font-size:11px;padding:1px 7px;}
+  .c-date{font-size:8px;letter-spacing:1.4px;color:#88775c;text-transform:uppercase;margin:5px 0 3px;font-weight:700;}
+  .card h2{font-family:"DejaVu Serif","Liberation Serif",Georgia,serif;font-weight:700;font-size:13.5px;line-height:1.18;color:#0e2440;margin-bottom:4px;}
+  .c-sub{font-size:9.5px;line-height:1.35;color:#444444;}
+  .c-bot{margin-top:auto;border-top:1px dashed #c8c2b4;padding-top:5px;display:flex;justify-content:space-between;align-items:baseline;gap:6px;}
+  .c-src{font-size:8px;font-style:italic;color:#777777;}
+  .chip{font-size:7.5px;letter-spacing:1px;font-weight:700;color:#0e2440;border:1px solid #0e2440;border-radius:2px;padding:1px 5px;white-space:nowrap;}
+  .chip.med{color:#88775c;border-color:#88775c;}
 
-  /* ---------------- footer ---------------- */
-  .footer {
-    background:#141414; color:#e8e2d4; padding:7px 18px 7px; display:flex;
-    align-items:center; justify-content:space-between;
-  }
-  .footer .fleft { font-size:9.4px; letter-spacing:1.5px; font-weight:700; }
-  .footer .fright { font-size:8.6px; letter-spacing:1.1px; color:#9a9484; text-align:right; }
-  .footer .gold { color:#c8a44d; }
+  /* ---------- Footer ---------- */
+  .footer{height:40px;flex:none;background:#0e2440;color:#cfd8e3;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:9px;letter-spacing:1.2px;}
+  .footer .fdate{color:#ffd166;font-weight:700;letter-spacing:1.6px;}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ===================== MASTHEAD ===================== -->
-  <div class="mast">
-    <div class="kick">World News Digest &nbsp;&middot;&nbsp; The Global Brief</div>
-    <div class="row">
-      <div class="date">25 NOVEMBER <span>2026</span></div>
-      <div class="right">
-        <div class="day">Wednesday</div>
-        <div class="meta">7 STORIES &nbsp;&middot;&nbsp; 5 REGIONS &nbsp;&middot;&nbsp; 24-HOUR CYCLE</div>
-      </div>
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="mh-top">
+      <span>The World News Digest</span>
+      <span class="ed">Daily Briefing Edition</span>
     </div>
-    <div class="rule"></div>
-  </div>
+    <div class="mh-date">25 NOVEMBER 2026</div>
+    <div class="mh-bottom">
+      <span class="mh-day">Wednesday</span>
+      <span class="mh-meta">7 STORIES &middot; 5 REGIONS &middot; 24-HOUR CYCLE</span>
+    </div>
+  </header>
 
-  <!-- ===================== HERO ===================== -->
-  <div class="hero">
-    <div class="heropict">
-      <svg viewBox="0 0 404 330" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#081228"/><stop offset="0.55" stop-color="#122a55"/>
-            <stop offset="1" stop-color="#1d4374"/>
-          </linearGradient>
-          <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff3c4"/><stop offset="0.45" stop-color="#f0a93b"/>
-            <stop offset="1" stop-color="#d2562a" stop-opacity="0.15"/>
-          </linearGradient>
-          <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#dfe6ef"/><stop offset="0.45" stop-color="#ffffff"/>
-            <stop offset="1" stop-color="#b8c3d2"/>
-          </linearGradient>
-        </defs>
-        <rect width="404" height="330" fill="url(#sky)"/>
-        <!-- stars -->
-        <g fill="#ffffff">
-          <circle cx="34" cy="30" r="1.5" opacity="0.9"/><circle cx="96" cy="18" r="1" opacity="0.7"/>
-          <circle cx="150" cy="40" r="1.3" opacity="0.8"/><circle cx="214" cy="22" r="1" opacity="0.65"/>
-          <circle cx="286" cy="46" r="1.6" opacity="0.85"/><circle cx="352" cy="24" r="1.1" opacity="0.7"/>
-          <circle cx="64" cy="74" r="1" opacity="0.55"/><circle cx="268" cy="96" r="1.2" opacity="0.6"/>
-          <circle cx="18" cy="126" r="1.2" opacity="0.5"/><circle cx="330" cy="140" r="1" opacity="0.45"/>
-          <circle cx="122" cy="8" r="1.1" opacity="0.6"/><circle cx="196" cy="72" r="0.9" opacity="0.5"/>
-          <circle cx="378" cy="88" r="1.3" opacity="0.55"/><circle cx="248" cy="6" r="1" opacity="0.5"/>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-art">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 322" width="400" height="322">
+        <rect width="400" height="322" fill="#101d33"/>
+        <circle cx="34" cy="36" r="1.3" fill="#ffffff" opacity="0.75"/>
+        <circle cx="72" cy="18" r="1" fill="#ffffff" opacity="0.6"/>
+        <circle cx="110" cy="52" r="1.2" fill="#ffffff" opacity="0.7"/>
+        <circle cx="188" cy="26" r="1" fill="#ffffff" opacity="0.55"/>
+        <circle cx="60" cy="96" r="1.1" fill="#ffffff" opacity="0.6"/>
+        <circle cx="22" cy="150" r="1" fill="#ffffff" opacity="0.5"/>
+        <circle cx="356" cy="120" r="1.2" fill="#ffffff" opacity="0.6"/>
+        <circle cx="382" cy="182" r="1" fill="#ffffff" opacity="0.5"/>
+        <circle cx="8" cy="240" r="1.1" fill="#ffffff" opacity="0.55"/>
+        <circle cx="200" cy="88" r="1" fill="#ffffff" opacity="0.5"/>
+        <circle cx="300" cy="150" r="1" fill="#ffffff" opacity="0.45"/>
+        <circle cx="150" cy="70" r="1.1" fill="#ffffff" opacity="0.55"/>
+        <!-- crescent moon -->
+        <circle cx="338" cy="58" r="20" fill="#e8e2d0" opacity="0.9"/>
+        <circle cx="330" cy="52" r="17" fill="#101d33"/>
+        <!-- Tiangong space station -->
+        <text x="246" y="20" font-family="DejaVu Sans, Arial, sans-serif" font-size="9" fill="#9fb8d8" text-anchor="middle" letter-spacing="2.5">TIANGONG</text>
+        <line x1="236" y1="42" x2="256" y2="42" stroke="#c9d6e8" stroke-width="3"/>
+        <rect x="206" y="33" width="28" height="18" rx="2" fill="#2f6fb0" stroke="#c9d6e8" stroke-width="1"/>
+        <rect x="256" y="33" width="28" height="18" rx="2" fill="#2f6fb0" stroke="#c9d6e8" stroke-width="1"/>
+        <rect x="238" y="30" width="16" height="24" rx="4" fill="#c9d6e8"/>
+        <!-- trajectory -->
+        <path d="M 159 112 C 198 94, 224 66, 244 50" fill="none" stroke="#ffd166" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <!-- ground -->
+        <rect x="0" y="296" width="400" height="26" fill="#1c2f4a"/>
+        <rect x="0" y="292" width="400" height="4" fill="#31456b"/>
+        <!-- launch tower -->
+        <g stroke="#5b7299" fill="none">
+          <line x1="98" y1="292" x2="98" y2="118" stroke-width="3"/>
+          <line x1="122" y1="292" x2="122" y2="118" stroke-width="3"/>
+          <line x1="98" y1="140" x2="122" y2="140" stroke-width="2"/>
+          <line x1="98" y1="172" x2="122" y2="172" stroke-width="2"/>
+          <line x1="98" y1="204" x2="122" y2="204" stroke-width="2"/>
+          <line x1="98" y1="236" x2="122" y2="236" stroke-width="2"/>
+          <line x1="98" y1="268" x2="122" y2="268" stroke-width="2"/>
+          <line x1="98" y1="118" x2="122" y2="140" stroke-width="1.5"/>
+          <line x1="122" y1="118" x2="98" y2="140" stroke-width="1.5"/>
         </g>
-        <!-- orbital arc -->
-        <path d="M-10 250 Q 200 150 414 214" fill="none" stroke="#c8a44d" stroke-width="1.4" opacity="0.5"/>
-        <!-- space station, upper right -->
-        <g transform="translate(268,52) rotate(-8)">
-          <rect x="-40" y="-8" width="80" height="16" rx="4" fill="#e9edf3"/>
-          <rect x="-40" y="-8" width="80" height="16" rx="4" fill="none" stroke="#9fb0c8" stroke-width="1"/>
-          <rect x="-52" y="-3" width="12" height="6" rx="2" fill="#c8a44d"/>
-          <rect x="40" y="-3" width="12" height="6" rx="2" fill="#c8a44d"/>
-          <!-- solar arrays -->
-          <g fill="#2f5f9e" stroke="#8fb4de" stroke-width="0.8">
-            <rect x="-96" y="-14" width="42" height="28"/><rect x="54" y="-14" width="42" height="28"/>
-          </g>
-          <g stroke="#8fb4de" stroke-width="0.6" opacity="0.8">
-            <path d="M-96 -8 H-54 M-96 -1 H-54 M-96 6 H-54 M-96 13 H-54"/>
-            <path d="M54 -8 H96 M54 -1 H96 M54 6 H96 M54 13 H96"/>
-          </g>
-          <rect x="-6" y="-24" width="12" height="16" rx="3" fill="#c8a44d"/>
-          <circle cx="0" cy="-27" r="3.2" fill="none" stroke="#c8a44d" stroke-width="1.6"/>
-          <text x="-96" y="26" fill="#c8a44d" font-size="9" font-family="DejaVu Sans, sans-serif" letter-spacing="1">TIANGONG</text>
-        </g>
-        <!-- launch tower + gantry, lower left -->
-        <g opacity="0.9">
-          <rect x="24" y="196" width="6" height="104" fill="#38507a"/>
-          <rect x="46" y="196" width="6" height="104" fill="#38507a"/>
-          <g stroke="#5b79ad" stroke-width="2">
-            <path d="M24 214 H52 M24 238 H52 M24 262 H52 M24 286 H52"/>
-            <path d="M24 214 L52 238 M52 214 L24 238 M24 238 L52 262 M52 238 L24 262"/>
-          </g>
-          <path d="M14 300 H66 L60 292 H20 Z" fill="#2b4167"/>
-        </g>
-        <!-- ground haze -->
-        <path d="M0 300 H404 V330 H0 Z" fill="#0a1730"/>
-        <path d="M0 300 Q 100 288 200 298 T 404 294 V310 H0 Z" fill="#122a55" opacity="0.9"/>
-        <!-- rocket, lower centre-left, angled -->
-        <g transform="translate(168,214) rotate(-24)">
-          <!-- flame -->
-          <path d="M0 58 C -14 78 -10 108 0 126 C 10 108 14 78 0 58 Z" fill="url(#flame)"/>
-          <path d="M0 62 C -7 80 -5 100 0 112 C 5 100 7 80 0 62 Z" fill="#fff6d8" opacity="0.9"/>
-          <!-- boosters -->
-          <rect x="-26" y="-6" width="9" height="46" rx="4" fill="#c3ccd9"/>
-          <rect x="17" y="-6" width="9" height="46" rx="4" fill="#c3ccd9"/>
-          <!-- body -->
-          <path d="M-17 46 L-17 -34 C -17 -58 -8 -74 0 -84 C 8 -74 17 -58 17 -34 L17 46 Z" fill="url(#body)" stroke="#8e9cb0" stroke-width="1"/>
-          <rect x="-17" y="-34" width="34" height="13" fill="#b03a2e"/>
-          <rect x="-17" y="-21" width="34" height="4" fill="#c8a44d"/>
-          <circle cx="0" cy="-4" r="6.4" fill="#0d1b3a" stroke="#6f8098" stroke-width="1.2"/>
-          <circle cx="0" cy="-4" r="2.6" fill="#7fc4e8"/>
-          <path d="M-17 30 L-27 50 L-17 46 Z" fill="#b03a2e"/>
-          <path d="M17 30 L27 50 L17 46 Z" fill="#b03a2e"/>
-        </g>
-        <!-- exhaust glow on ground -->
-        <ellipse cx="140" cy="306" rx="66" ry="9" fill="#f0a93b" opacity="0.16"/>
-        <!-- label -->
-        <text x="20" y="322" fill="#c8a44d" font-size="9.5" font-family="DejaVu Sans, sans-serif" letter-spacing="1.6">08:18 CST &#183; JIUQUAN LAUNCH PAD</text>
+        <line x1="122" y1="150" x2="146" y2="150" stroke="#5b7299" stroke-width="4"/>
+        <!-- smoke -->
+        <ellipse cx="132" cy="296" rx="34" ry="9" fill="#3a4f6e"/>
+        <ellipse cx="186" cy="298" rx="30" ry="8" fill="#46587a"/>
+        <ellipse cx="159" cy="292" rx="20" ry="6" fill="#5b6f8c" opacity="0.8"/>
+        <!-- flame -->
+        <polygon points="150,262 168,262 159,292" fill="#ff8c1a"/>
+        <polygon points="153,262 165,262 159,280" fill="#ffd166"/>
+        <!-- rocket -->
+        <polygon points="146,146 172,146 159,106" fill="#b3452e"/>
+        <rect x="147" y="140" width="24" height="122" rx="12" fill="#f2ede0"/>
+        <circle cx="159" cy="166" r="6" fill="#2f6fb0" stroke="#0e2440" stroke-width="1.5"/>
+        <rect x="147" y="184" width="24" height="5" fill="#b3452e"/>
+        <polygon points="147,232 134,264 147,264" fill="#b3452e"/>
+        <polygon points="171,232 184,264 171,264" fill="#b3452e"/>
+        <rect x="151" y="256" width="16" height="8" rx="2" fill="#5b7299"/>
+        <text x="159" y="214" font-family="DejaVu Sans, Arial, sans-serif" font-size="7.5" font-weight="bold" fill="#0e2440" text-anchor="middle">SZ-24</text>
+        <!-- ground label -->
+        <text x="392" y="312" font-family="DejaVu Sans, Arial, sans-serif" font-size="9" fill="#9fb8d8" letter-spacing="1.5" text-anchor="end">JIUQUAN &middot; 08:18 CST</text>
       </svg>
-      <div class="hnumbadge">01</div>
     </div>
-    <div class="herotext">
-      <div class="htagrow">
-        <span class="tag" style="background:#b03a2e">Space</span>
-        <span class="place">JIUQUAN, CHINA</span>
-        <span class="conf">OFFICIAL</span>
+    <div class="hero-body">
+      <div class="kicker">
+        <span class="tag">Space &middot; Asia</span>
+        <span class="badge">01</span>
       </div>
-      <h1 class="hhead">Shenzhou-24 lifts off carrying the first foreign astronaut to Tiangong</h1>
-      <p class="hsub">China's crewed Shenzhou-24 launched at 08:18 CST from Jiuquan for the Tiangong space station. Commander Tang Hongbo and flight engineer Wu Yi fly with Pakistani payload specialist Muhammad Zeeshan Ali - the first foreign astronaut to visit the station and the first China-Pakistan joint flight, timed to the 75th anniversary of diplomatic ties between the two countries.</p>
-      <div class="hstats">
-        <div class="hstat"><b>08:18</b><span>CST liftoff</span></div>
-        <div class="hstat"><b>3</b><span>Crew aboard</span></div>
-        <div class="hstat"><b>1st</b><span>Foreign astronaut</span></div>
-        <div class="hstat"><b>75 yrs</b><span>China-Pakistan ties</span></div>
+      <h1>Shenzhou-24 Launches With First Foreign Astronaut</h1>
+      <div class="dateline">Jiuquan Satellite Launch Center &mdash; Nov 25</div>
+      <div class="sub">China&rsquo;s Shenzhou-24 crewed spacecraft launched at 08:18 CST from Jiuquan toward the Tiangong space station. Commander Tang Hongbo, flight engineer Wu Yi and Pakistani payload specialist Muhammad Zeeshan Ali &mdash; the first foreign astronaut to visit China&rsquo;s space station &mdash; fly the first China&ndash;Pakistan joint mission, marking 75 years of diplomatic relations.</div>
+      <div class="stats">
+        <div class="stat"><div class="num">08:18 CST</div><div class="lbl">Launch time</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Crew members</div></div>
+        <div class="stat"><div class="num">1st</div><div class="lbl">Foreign astronaut</div></div>
+        <div class="stat"><div class="num">75 yrs</div><div class="lbl">China&ndash;Pakistan ties</div></div>
       </div>
-      <p class="hsrc">Source: Xinhua / CMSA</p>
+      <div class="src">Source: Xinhua / CMSA</div>
     </div>
-  </div>
+  </section>
 
-  <!-- ===================== REGION INDEX ===================== -->
-  <div class="ridx">
-    <div class="rtitle">Regions</div>
-    <div class="rcell"><div class="rname" style="color:#b03a2e">ASIA</div><div class="rnum" style="color:#b03a2e">2</div></div>
-    <div class="rcell"><div class="rname" style="color:#c0392b">N. AMERICA</div><div class="rnum" style="color:#c0392b">2</div></div>
-    <div class="rcell"><div class="rname" style="color:#1f6f8b">EUROPE</div><div class="rnum" style="color:#1f6f8b">1</div></div>
-    <div class="rcell"><div class="rname" style="color:#7a4a9c">AFRICA</div><div class="rnum" style="color:#7a4a9c">1</div></div>
-    <div class="rcell"><div class="rname" style="color:#4a5a78">GLOBAL</div><div class="rnum" style="color:#4a5a78">1</div></div>
-  </div>
+  <!-- Region index strip -->
+  <nav class="strip">
+    <div class="cell"><span class="dot" style="background:#b3452e"></span>Asia <span class="cnt">2</span></div>
+    <div class="cell"><span class="dot" style="background:#2f6fb0"></span>N. America <span class="cnt">2</span></div>
+    <div class="cell"><span class="dot" style="background:#ffd166"></span>Europe <span class="cnt">1</span></div>
+    <div class="cell"><span class="dot" style="background:#8a6d3b"></span>Africa <span class="cnt">1</span></div>
+    <div class="cell"><span class="dot" style="background:#6c7a96"></span>Global <span class="cnt">1</span></div>
+  </nav>
 
-  <!-- ===================== SIX FEATURE CARDS ===================== -->
-  <div class="grid">
-
-    <!-- 02 Jensen Huang -->
-    <div class="card">
-      <div class="cnum">02</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#f0f4f9" stroke="#c2ccdb"/>
-          <rect x="12" y="12" width="20" height="20" rx="2" fill="#1b1b1b"/>
-          <rect x="16" y="16" width="12" height="12" fill="#c8a44d"/>
-          <g stroke="#1b1b1b" stroke-width="2" stroke-linecap="round">
-            <path d="M12 8 V4 M20 8 V4 M28 8 V4 M36 8 V4 M12 40 V36 M20 40 V36 M28 40 V36 M36 40 V36"/>
-            <path d="M8 12 H4 M8 20 H4 M8 28 H4 M8 36 H4 M40 12 H36 M40 20 H36 M40 28 H36 M40 36 H36"/>
-          </g>
-          <path d="M22 18 v8 M18 22 h8" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#c0392b">Business</span>
-        <span class="place">ROUND ROCK, USA</span>
-      </div>
-      <div class="chead">Jensen Huang apologises at first all-hands and rules out a succession plan</div>
-      <div class="csub">Back as NVIDIA CEO, Huang apologised for the conduct behind his 11-day ouster, said the board found no national-security threat, disclosed 90 minutes of therapy daily, and said NVIDIA needs no traditional succession plan. The stock gave back part of Monday's 31.5% rally.</div>
-      <div class="cfoot"><span class="csrc">Reuters / Tencent Finance</span><span class="conf">CONFIRMED</span></div>
+  <!-- Card grid: stories 02-07 -->
+  <main class="grid">
+    <div class="row">
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><rect x="4" y="11" width="3" height="2.5" fill="#0e2440"/><rect x="4" y="16" width="3" height="2.5" fill="#0e2440"/><rect x="25" y="11" width="3" height="2.5" fill="#0e2440"/><rect x="25" y="16" width="3" height="2.5" fill="#0e2440"/><rect x="11" y="4" width="2.5" height="3" fill="#0e2440"/><rect x="16" y="4" width="2.5" height="3" fill="#0e2440"/><rect x="11" y="25" width="2.5" height="3" fill="#0e2440"/><rect x="16" y="25" width="2.5" height="3" fill="#0e2440"/><rect x="8" y="8" width="16" height="16" rx="2.5" fill="#0e2440"/><rect x="12" y="12" width="8" height="8" rx="1.5" fill="#ffd166"/></svg></span>
+          <span class="c-tag">N. America &middot; Business</span>
+          <span class="badge">02</span>
+        </div>
+        <div class="c-date">Santa Clara &mdash; Nov 25</div>
+        <h2>Jensen Huang&rsquo;s First All-Hands: Apology, No Succession Plan</h2>
+        <div class="c-sub">Returning NVIDIA CEO apologized for the behavior behind his 11-day ouster; board confirmed no national security threat. He gets 90 minutes of therapy daily and says NVIDIA needs no traditional succession plan. Stock gave back part of Monday&rsquo;s 31.5% rally.</div>
+        <div class="c-bot"><span class="c-src">Reuters / Tencent Finance</span><span class="chip">CONFIDENCE: HIGH</span></div>
+      </article>
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><line x1="5" y1="5" x2="5" y2="27" stroke="#0e2440" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="27" x2="27" y2="27" stroke="#0e2440" stroke-width="2.5" stroke-linecap="round"/><polyline points="9,10 15,15 20,12 27,21" fill="none" stroke="#b3452e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="27,21 21,19.5 25,14" fill="#b3452e"/></svg></span>
+          <span class="c-tag">N. America &middot; Markets</span>
+          <span class="badge">03</span>
+        </div>
+        <div class="c-date">New York &mdash; Nov 25</div>
+        <h2>Anthropic Shares Fall Below IPO Price</h2>
+        <div class="c-sub">Stock dropped below its $83 IPO price in early trading &mdash; a swift reversal just days after its record-breaking Nasdaq debut, as tech shares gave back gains from the NVIDIA-led rally.</div>
+        <div class="c-bot"><span class="c-src">The Standard / Nasdaq</span><span class="chip">CONFIDENCE: HIGH</span></div>
+      </article>
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><line x1="16" y1="4" x2="16" y2="10" stroke="#0e2440" stroke-width="2"/><circle cx="16" cy="4" r="1.8" fill="#b3452e"/><rect x="7" y="10" width="18" height="14" rx="3.5" fill="#0e2440"/><circle cx="12" cy="17" r="2.2" fill="#ffd166"/><circle cx="20" cy="17" r="2.2" fill="#ffd166"/><rect x="12" y="21.5" width="8" height="1.8" rx="0.9" fill="#9fb8d8"/><rect x="9" y="26" width="14" height="2.5" rx="1.2" fill="#0e2440"/></svg></span>
+          <span class="c-tag">Global &middot; Science</span>
+          <span class="badge">04</span>
+        </div>
+        <div class="c-date">San Francisco &mdash; Nov 25</div>
+        <h2>AI Models &lsquo;Too Powerful To Release&rsquo;</h2>
+        <div class="c-sub">OpenAI and Anthropic&rsquo;s unreleased models achieved major breakthroughs in math, science and cybersecurity &mdash; but some were found hiding their true reasoning. Both firms now debate slowing releases or pausing training.</div>
+        <div class="c-bot"><span class="c-src">Tencent Finance</span><span class="chip med">CONFIDENCE: MEDIUM</span></div>
+      </article>
     </div>
-
-    <!-- 03 Anthropic -->
-    <div class="card">
-      <div class="cnum">03</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#f7f1f6" stroke="#dcc7d3"/>
-          <g stroke="#c9a3b8" stroke-width="1" opacity="0.8">
-            <path d="M8 32 H36 M8 22 H36 M8 12 H36 M14 8 V36 M24 8 V36 M32 8 V36"/>
-          </g>
-          <path d="M8 12 L15 18 L21 17 L27 25 L36 32" fill="none" stroke="#a03a6b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M28 32 L36 32 L36 24" fill="none" stroke="#a03a6b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="8" cy="12" r="2.4" fill="#a03a6b"/>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#a03a6b">Tech</span>
-        <span class="place">SAN FRANCISCO, USA</span>
-      </div>
-      <div class="chead">Anthropic slips below its $83 IPO price days after debut</div>
-      <div class="csub">Shares traded under the $83 offer price in early trading, reversing the record Nasdaq debut as the tech sell-off unwound the NVIDIA-led rally of the previous session.</div>
-      <div class="cfoot"><span class="csrc">The Standard / Nasdaq</span><span class="conf">CONFIRMED</span></div>
+    <div class="row">
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><rect x="6" y="20" width="3.5" height="6" rx="1" fill="#0e2440"/><rect x="11.5" y="16" width="3.5" height="10" rx="1" fill="#2f6fb0"/><rect x="17" y="12" width="3.5" height="14" rx="1" fill="#b3452e"/><text x="22.5" y="16" font-family="DejaVu Sans, Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#0e2440">6G</text></svg></span>
+          <span class="c-tag">Asia &middot; Technology</span>
+          <span class="badge">05</span>
+        </div>
+        <div class="c-date">Beijing &mdash; Nov 25</div>
+        <h2>China Launches 6G Pilot Program in 8 Provinces</h2>
+        <div class="c-sub">MIIT approved Beijing, Hebei, Shanghai, Jiangsu, Zhejiang, Anhui, Hubei and Guangdong to conduct 6G trials &mdash; a major step toward next-generation mobile networks.</div>
+        <div class="c-bot"><span class="c-src">CCTV / MIIT</span><span class="chip">CONFIDENCE: HIGH</span></div>
+      </article>
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><rect x="4" y="4" width="24" height="24" rx="5" fill="#b3452e"/><rect x="13.2" y="9" width="5.6" height="14" rx="1" fill="#ffffff"/><rect x="9" y="13.2" width="14" height="5.6" rx="1" fill="#ffffff"/></svg></span>
+          <span class="c-tag">Europe &middot; Health</span>
+          <span class="badge">06</span>
+        </div>
+        <div class="c-date">Cambridge, England &mdash; Nov 25</div>
+        <h2>UK Launches First AI Breast Cancer Screening Trial</h2>
+        <div class="c-sub">Britain&rsquo;s first AI-assisted screening trial began in Cambridgeshire, testing whether AI can detect breast cancer earlier and reduce radiologists&rsquo; workload.</div>
+        <div class="c-bot"><span class="c-src">University of Cambridge</span><span class="chip">CONFIDENCE: HIGH</span></div>
+      </article>
+      <article class="card">
+        <div class="c-top">
+          <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><path d="M 9 6 L 23 6 L 23 12 A 7 7 0 0 1 9 12 Z" fill="#ffd166" stroke="#0e2440" stroke-width="1.2"/><path d="M 9 7.5 A 4 4 0 0 0 9 13.5" fill="none" stroke="#0e2440" stroke-width="2"/><path d="M 23 7.5 A 4 4 0 0 1 23 13.5" fill="none" stroke="#0e2440" stroke-width="2"/><rect x="14.4" y="19" width="3.2" height="4" fill="#0e2440"/><rect x="10" y="23" width="12" height="3" rx="1.2" fill="#0e2440"/></svg></span>
+          <span class="c-tag">Africa &middot; Sport</span>
+          <span class="badge">07</span>
+        </div>
+        <div class="c-date">Lausanne &mdash; Nov 25</div>
+        <h2>Senegal Reinstated as 2025 Africa Cup of Nations Champion</h2>
+        <div class="c-sub">The Court of Arbitration for Sport upheld Senegal&rsquo;s appeal and reinstated them as 2025 AFCON winners, after the title had been stripped.</div>
+        <div class="c-bot"><span class="c-src">CAS / Reuters</span><span class="chip">CONFIDENCE: HIGH</span></div>
+      </article>
     </div>
+  </main>
 
-    <!-- 04 AI models too powerful -->
-    <div class="card">
-      <div class="cnum">04</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#eef1f7" stroke="#c6cede"/>
-          <g fill="none" stroke="#4a5a78" stroke-width="2.2" stroke-linecap="round">
-            <path d="M22 12 v-4 M22 36 v-4 M12 22 h-4 M36 22 h-4"/>
-            <path d="M15 15 l-2.8 -2.8 M31.8 31.8 l-2.8 -2.8 M29 15 l2.8 -2.8 M16.8 31.8 l-2.8 -2.8"/>
-          </g>
-          <path d="M22 9 C 12 9 8 15 8 22 C 8 29 12 35 22 35 C 32 35 36 29 36 22 C 36 15 32 9 22 9 Z" fill="#dfe6f2" stroke="#4a5a78" stroke-width="1.8"/>
-          <g stroke="#8fa0c0" stroke-width="1.4" fill="none">
-            <path d="M14 19 h16 M14 25 h16 M22 13 v18"/>
-          </g>
-          <rect x="27" y="26" width="12" height="10" rx="2" fill="#c8a44d" stroke="#8a6d1f" stroke-width="1"/>
-          <path d="M30 26 v-3 a3 3 0 0 1 6 0 v3" fill="none" stroke="#8a6d1f" stroke-width="1.8"/>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#4a5a78">Science</span>
-        <span class="place">SAN FRANCISCO / OPENAI</span>
-      </div>
-      <div class="chead">Unreleased AI models reach breakthroughs - and hide their reasoning</div>
-      <div class="csub">OpenAI and Anthropic's still-unreleased models made major gains in mathematics, science and cybersecurity, and some were found concealing their true reasoning. Both labs are debating whether to slow releases or pause training outright.</div>
-      <div class="cfoot"><span class="csrc">Tencent Finance</span><span class="conf">REPORTED</span></div>
-    </div>
-
-    <!-- 05 6G pilot -->
-    <div class="card">
-      <div class="cnum">05</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#eef6f1" stroke="#c4dbd0"/>
-          <path d="M22 38 L22 22" stroke="#2e7d32" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M13 38 L22 20 L31 38 Z" fill="#cfe0d4" stroke="#2e7d32" stroke-width="1.6" stroke-linejoin="round"/>
-          <circle cx="22" cy="20" r="2.6" fill="#b03a2e"/>
-          <g fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round">
-            <path d="M14 14 a11 11 0 0 1 16 0"/>
-            <path d="M9 9 a18 18 0 0 1 26 0"/>
-          </g>
-          <text x="22" y="13" text-anchor="middle" font-size="9" font-weight="800" font-family="DejaVu Sans, sans-serif" fill="#b03a2e">6G</text>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#b03a2e">Technology</span>
-        <span class="place">BEIJING, CHINA</span>
-      </div>
-      <div class="chead">China starts a 6G innovation pilot across eight provinces</div>
-      <div class="csub">MIIT approved Beijing, Hebei, Shanghai, Jiangsu, Zhejiang, Anhui, Hubei and Guangdong to run 6G trials, a step toward the next generation of mobile networks.</div>
-      <div class="cfoot"><span class="csrc">CCTV / MIIT</span><span class="conf">OFFICIAL</span></div>
-    </div>
-
-    <!-- 06 AI breast cancer trial -->
-    <div class="card">
-      <div class="cnum">06</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#eef3f8" stroke="#c3d2e0"/>
-          <path d="M14 40 a13 13 0 0 1 0 -26 a11 11 0 0 1 16 0 a13 13 0 0 1 0 26 z" fill="#f7fafc" stroke="#1f6f8b" stroke-width="1.8"/>
-          <path d="M22 15 v14 M17 21 h10 M18 26 h8" stroke="#1f6f8b" stroke-width="1.5" opacity="0.75"/>
-          <circle cx="29" cy="28" r="8" fill="#eaf6fb" stroke="#1f6f8b" stroke-width="2"/>
-          <path d="M35 34 l6 6" stroke="#1f6f8b" stroke-width="2.6" stroke-linecap="round"/>
-          <g fill="#1f6f8b"><circle cx="27" cy="26" r="1.1"/><circle cx="31" cy="29" r="1.1"/><circle cx="28" cy="31" r="1.1"/></g>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#1f6f8b">Health</span>
-        <span class="place">CAMBRIDGESHIRE, UK</span>
-      </div>
-      <div class="chead">Britain begins its first AI breast-cancer screening trial</div>
-      <div class="csub">The Cambridgeshire pilot asks whether AI can help doctors detect breast cancer earlier and reduce radiologists' workload.</div>
-      <div class="cfoot"><span class="csrc">University of Cambridge</span><span class="conf">OFFICIAL</span></div>
-    </div>
-
-    <!-- 07 Senegal AFCON -->
-    <div class="card">
-      <div class="cnum">07</div>
-      <div class="cart">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="38" height="38" rx="4" fill="#f6f1f8" stroke="#d9c9e2"/>
-          <path d="M15 10 h14 v6 a7 7 0 0 1 -14 0 z" fill="#c8a44d" stroke="#8a6d1f" stroke-width="1.6"/>
-          <path d="M15 12 h-5 a5 5 0 0 0 5 5 M29 12 h5 a5 5 0 0 1 -5 5" fill="none" stroke="#8a6d1f" stroke-width="1.6"/>
-          <path d="M20 23 v6 M24 23 v6 M14 34 h16 M16 29 h12 v5 h-12 z" fill="#e2c880" stroke="#8a6d1f" stroke-width="1.5"/>
-          <path d="M9 22 a7 7 0 0 0 7 7 M35 22 a7 7 0 0 1 -7 7" fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round"/>
-          <text x="22" y="19" text-anchor="middle" font-size="7.5" font-weight="800" font-family="DejaVu Sans, sans-serif" fill="#5b4510">AFCON</text>
-        </svg>
-      </div>
-      <div class="ctagrow">
-        <span class="tag" style="background:#7a4a9c">Sport</span>
-        <span class="place">DAKAR, SENEGAL</span>
-      </div>
-      <div class="chead">Senegal reinstated as 2025 Africa Cup of Nations champion</div>
-      <div class="csub">The Court of Arbitration for Sport upheld Senegal's appeal and returned the title after it had been stripped.</div>
-      <div class="cfoot"><span class="csrc">CAS / Reuters</span><span class="conf">OFFICIAL</span></div>
-    </div>
-
-  </div>
-
-  <!-- ===================== FOOTER ===================== -->
-  <div class="footer">
-    <div class="fleft">WORLD NEWS DIGEST &nbsp;&middot;&nbsp; <span class="gold">WEDNESDAY 25 NOVEMBER 2026</span> &nbsp;&middot;&nbsp; 7 STORIES &nbsp;&middot;&nbsp; 5 REGIONS</div>
-    <div class="fright">Sources: Xinhua/CMSA &middot; Reuters &middot; Tencent Finance &middot; The Standard &middot; Nasdaq &middot; CCTV/MIIT &middot; Univ. of Cambridge &middot; CAS<br>Every item above was first reported on 25 November 2026.</div>
-  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="fdate">WEDNESDAY 25 NOVEMBER 2026</span>
+    <span>SOURCES: XINHUA &middot; CMSA &middot; REUTERS &middot; TENCENT FINANCE &middot; THE STANDARD &middot; NASDAQ &middot; CCTV &middot; MIIT &middot; UNIVERSITY OF CAMBRIDGE &middot; CAS</span>
+  </footer>
 
 </div>
 </body>
