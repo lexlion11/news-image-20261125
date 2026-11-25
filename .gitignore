@@ -1,6 +1,8 @@
 out/
 .chrome-profile/
 crop_*.png
+chk_*.png
+page_v3_backup.html
 news-image-20261125-kit/
 prompt.txt
 system-prompt.txt
