@@ -1,83 +1,95 @@
-// news-image-20261125 — deliverable runner (Node stdlib only).
-// Copies this entry's rendered image to the output directory the grader asks for.
-// The source image is resolved relative to THIS module, never the CWD, so the
-// entry works no matter where it is run from.
+#!/usr/bin/env node
+// news-image-20261125 — "The World in One Day", Wednesday 25 November 2026.
+//
+// The image itself is a rendered artefact (entry.png); this program copies that
+// exact file to the competition output directory and then proves, from the
+// bytes on disk, that what landed there is a whole, valid PNG of the required
+// size. Two runs must produce identical bytes.
+//
+// The source is resolved relative to this module (never the working directory)
+// because the grader runs the entry from outside the repository.
+//
+// Node standard library only — nothing is installed before this runs.
 
 import { createHash } from "node:crypto";
-import { copyFile, mkdir, open, readFile, stat } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
+import { basename, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const MODULE_DIR = dirname(fileURLToPath(import.meta.url));
-const SOURCE = join(MODULE_DIR, "entry.png");
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+const MAX_BYTES = 1048576;
+const REQUIRED_WIDTH = 1024;
+const REQUIRED_HEIGHT = 1024;
 
-async function fail(message) {
-  console.error(`main.ts: ${message}`);
-  process.exitCode = 1;
+function fail(message) {
+  console.error("entry: " + message);
+  process.exit(1);
 }
 
-async function main() {
-  const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-  let sourceStat;
-  try {
-    sourceStat = await stat(SOURCE);
-  } catch (err) {
-    await fail(`source image missing or unreadable: ${SOURCE} (${err.code})`);
-    return;
+// Parse the PNG header: 8-byte signature, then an IHDR chunk carrying the
+// width, height, bit depth and colour type.
+function readPngHeader(buffer, label) {
+  if (buffer.length < 8 || buffer.subarray(0, 8).compare(PNG_MAGIC) !== 0) {
+    fail(label + " is not a PNG (signature mismatch)");
   }
-  if (!sourceStat.isFile()) {
-    await fail(`source image is not a regular file: ${SOURCE}`);
-    return;
+  if (buffer.length > MAX_BYTES) {
+    fail(label + " is " + buffer.length + " bytes, over the " + MAX_BYTES + " byte limit");
   }
-
-  // Read the header and validate it is a whole PNG of exactly 1024x1024.
-  let header;
-  try {
-    const handle = await open(SOURCE, "r");
-    try {
-      header = Buffer.alloc(24);
-      await handle.read(header, 0, 24, 0);
-    } finally {
-      await handle.close();
-    }
-  } catch (err) {
-    await fail(`could not read image header: ${err.code}`);
-    return;
+  if (buffer.length < 33 || buffer.readUInt32BE(8) !== 13 ||
+      buffer.subarray(12, 16).toString("ascii") !== "IHDR") {
+    fail(label + " has a malformed IHDR chunk");
   }
-  if (header.subarray(0, 8).equals(PNG_MAGIC) === false) {
-    await fail("source image is not a valid PNG (bad magic bytes)");
-    return;
+  const width = buffer.readUInt32BE(16);
+  const height = buffer.readUInt32BE(20);
+  if (width !== REQUIRED_WIDTH || height !== REQUIRED_HEIGHT) {
+    fail(label + " is " + width + "x" + height + ", must be exactly " +
+         REQUIRED_WIDTH + "x" + REQUIRED_HEIGHT);
   }
-  const width = header.readUInt32BE(16);
-  const height = header.readUInt32BE(20);
-  if (width !== 1024 || height !== 1024) {
-    await fail(`source image must be 1024x1024, found ${width}x${height}`);
-    return;
+  const bitDepth = buffer[24];
+  const colourType = buffer[25];
+  if (bitDepth !== 8 || ![0, 2, 3, 4, 6].includes(colourType)) {
+    fail(label + " has unsupported bit depth " + bitDepth + " / colour type " + colourType);
   }
-
-  try {
-    await mkdir(outputDir, { recursive: true });
-  } catch (err) {
-    await fail(`could not create output directory ${outputDir} (${err.code})`);
-    return;
-  }
-
-  const destination = join(outputDir, "entry.png");
-  try {
-    await copyFile(SOURCE, destination);
-  } catch (err) {
-    await fail(`could not copy image to ${destination} (${err.code})`);
-    return;
-  }
-
-  const destHash = createHash("sha256").update(await readFile(destination)).digest("hex");
-  const srcHash = createHash("sha256").update(await readFile(SOURCE)).digest("hex");
-  if (srcHash !== destHash) {
-    await fail("copied image does not match the source image");
-    return;
-  }
-  console.log(`entry.png copied to ${destination} (${sourceStat.size} bytes, 1024x1024, sha256 ${srcHash.slice(0, 16)}…)`);
+  return { width, height };
 }
 
-main();
+// The source is resolved relative to this module, never to the working
+// directory: the grader runs the entry from a directory outside the repository,
+// and a CWD-relative path failed an earlier submission.
+const source = process.argv[2] ?? fileURLToPath(new URL("./entry.png", import.meta.url));
+const outputName = process.argv[3] ?? "entry.png";
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+
+// The output directory may be given with a trailing separator; normalise it so
+// the path we print is the path we wrote to.
+const outputDirectory = outputDir.replace(/\/+$/, "") || "/";
+
+if (outputName !== basename(outputName) || outputName.includes("/") || outputName.includes("\\")) {
+  fail("output name must be a plain file name, got \"" + outputName + "\"");
+}
+if (!existsSync(source) || !statSync(source).isFile()) {
+  fail("source image not found or not a regular file: " + source);
+}
+
+const sourceBuffer = readFileSync(source);
+readPngHeader(sourceBuffer, "source");
+
+mkdirSync(outputDirectory, { recursive: true });
+const destination = join(outputDirectory, outputName);
+copyFileSync(source, destination);
+
+// Verify the copy that is actually on disk rather than trusting the copy call.
+const destinationBuffer = readFileSync(destination);
+if (destinationBuffer.length !== sourceBuffer.length) {
+  fail("size mismatch after copy: source " + sourceBuffer.length +
+       ", destination " + destinationBuffer.length);
+}
+const sourceHash = createHash("sha256").update(sourceBuffer).digest("hex");
+const destinationHash = createHash("sha256").update(destinationBuffer).digest("hex");
+if (sourceHash !== destinationHash) {
+  fail("SHA-256 mismatch: source " + sourceHash + " != destination " + destinationHash);
+}
+const { width, height } = readPngHeader(destinationBuffer, "destination");
+
+console.log("entry: copied " + source + " -> " + destination + " (" + destinationBuffer.length +
+            " bytes, " + width + "x" + height + " px, sha256 " + destinationHash + ") verified OK");
